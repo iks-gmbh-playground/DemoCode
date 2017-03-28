@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HOO OSGI Horoscope
+Bundle-SymbolicName: hoo-osgi-tc-o-horoscope
+Bundle-Version: 1.0.0
+Bundle-Vendor: IKS GmbH
+Bundle-ClassPath: .,
+ lib/sql-pojo-memo-db-0.0.4.jar
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.iksgmbh.demo.hoo.horoscope
+Require-Bundle: hoo-osgi-tc-o-order;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy

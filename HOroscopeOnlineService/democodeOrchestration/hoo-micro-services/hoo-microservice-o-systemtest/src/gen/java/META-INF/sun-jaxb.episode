@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.11 generiert 
+Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+Generiert: 2017.03.21 um 01:19:02 PM CET 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="api.control.hoo.demo.iksgmbh.com">
+    <schemaBindings map="false">
+      <package name="com.iksgmbh.demo.hoo.control.api"/>
+    </schemaBindings>
+    <bindings scd="tns:HOO_OrderRequest">
+      <class ref="com.iksgmbh.demo.hoo.control.api.HOOOrderRequest"/>
+    </bindings>
+    <bindings scd="tns:HOO_HoroscopeRequest">
+      <class ref="com.iksgmbh.demo.hoo.control.api.HOOHoroscopeRequest"/>
+    </bindings>
+    <bindings scd="tns:HOO_PaymentRequest">
+      <class ref="com.iksgmbh.demo.hoo.control.api.HOOPaymentRequest"/>
+    </bindings>
+    <bindings scd="tns:HOO_OrderResponse">
+      <class ref="com.iksgmbh.demo.hoo.control.api.HOOOrderResponse"/>
+    </bindings>
+    <bindings scd="tns:HOO_HoroscopeResponse">
+      <class ref="com.iksgmbh.demo.hoo.control.api.HOOHoroscopeResponse"/>
+    </bindings>
+  </bindings>
+</bindings>
+

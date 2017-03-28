@@ -1,0 +1,92 @@
+<!--
+===================================================================
+This file contains the definitions of all the data types,
+that are transferred by service methods of the HOOServiceControl.
+===================================================================
+-->
+
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:tns="api.control.hoo.demo.iksgmbh.com"
+    targetNamespace="api.control.hoo.demo.iksgmbh.com"
+    elementFormDefault="qualified" attributeFormDefault="qualified"
+    version="1.0">
+
+    <xs:element name="HOO_OrderRequest">
+        <xs:annotation>
+            <xs:documentation>Request to order a horoscope.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+            
+            	<!-- remitter data -->
+                <xs:element name="customerName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                
+                <!-- data on the person for which the horoscope refers -->
+                <xs:element name="birthdayOfTargetPerson" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>Format: day.month.year (dd.MM.yyyy)</xs:documentation></xs:annotation>
+                </xs:element>
+                
+            	<!-- horoscope metadata -->
+                <xs:element name="horoscopeType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="HOO_HoroscopeRequest">
+        <xs:annotation>
+            <xs:documentation>Request to fetch the horoscope of a paid order.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="orderNumber" type="xs:long" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>mandatory id field</xs:documentation></xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:element name="HOO_PaymentRequest">
+        <xs:annotation>
+            <xs:documentation>Administration request to set the payment state of the order.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="orderNumber" type="xs:long" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>mandatory id field</xs:documentation></xs:annotation>
+                </xs:element>
+                <xs:element name="paid" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>mandatory payment state field</xs:documentation></xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+
+    <xs:element name="HOO_OrderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="orderNumber" type="xs:long" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="bill" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="statusInfo" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>Status information on the order.</xs:documentation></xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="HOO_HoroscopeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="horoscopeText" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="statusInfo" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>Status information on the order.</xs:documentation></xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>HelloWorldServiceRest</artifactId>
+    <packaging>war</packaging>      
+    <description>Component of the secondary SSD artifacts of this WebService, 
+                 e.g. the Rest technology specific binding between api and impl.</description>
+  
+    <parent>
+        <groupId>HelloWorldService</groupId>
+        <artifactId>HelloWorldServiceParent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../_HelloWorldServiceParent/pom.xml</relativePath>
+    </parent>  
+      
+    <dependencies>
+
+      <dependency>
+          <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldServiceApi</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldServiceImpl</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+		     
+	  <dependency>
+		  <groupId>org.glassfish.jersey.containers</groupId>
+		  <artifactId>jersey-container-servlet</artifactId>
+		  <version>2.25</version>
+	  </dependency>    
+
+	</dependencies>      
+
+  <build>
+    <plugins>
+    
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.6</version>
+          <configuration>
+            <warName>HelloWorldRestService</warName>
+            <warSourceDirectory>WebContent</warSourceDirectory>
+          </configuration>
+        </plugin>
+      
+    </plugins>
+  </build>
+
+      
+</project>

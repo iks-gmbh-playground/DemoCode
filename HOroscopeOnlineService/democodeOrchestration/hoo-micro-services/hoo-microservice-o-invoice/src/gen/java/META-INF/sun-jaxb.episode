@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.11 generiert 
+Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+Generiert: 2017.03.13 um 08:23:10 AM CET 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="api.horoscope.hoo.demo.iksgmbh.com">
+    <schemaBindings map="false">
+      <package name="com.iksgmbh.demo.hoo.horoscope.api"/>
+    </schemaBindings>
+    <bindings scd="tns:CreateHoroscopeRequest">
+      <class ref="com.iksgmbh.demo.hoo.horoscope.api.CreateHoroscopeRequest"/>
+    </bindings>
+    <bindings scd="tns:Horoscope">
+      <class ref="com.iksgmbh.demo.hoo.horoscope.api.Horoscope"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="api.order.hoo.demo.iksgmbh.com">
+    <schemaBindings map="false">
+      <package name="com.iksgmbh.demo.hoo.order.api"/>
+    </schemaBindings>
+    <bindings scd="tns:Order">
+      <class ref="com.iksgmbh.demo.hoo.order.api.Order"/>
+    </bindings>
+    <bindings scd="tns:CreateOrderRequest">
+      <class ref="com.iksgmbh.demo.hoo.order.api.CreateOrderRequest"/>
+    </bindings>
+    <bindings scd="tns:OrderList">
+      <class ref="com.iksgmbh.demo.hoo.order.api.OrderList"/>
+    </bindings>
+    <bindings scd="tns:PaymentRequest">
+      <class ref="com.iksgmbh.demo.hoo.order.api.PaymentRequest"/>
+    </bindings>
+    <bindings scd="~tns:HoroscopeType">
+      <typesafeEnumClass ref="com.iksgmbh.demo.hoo.order.api.HoroscopeType"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="api.invoice.hoo.demo.iksgmbh.com">
+    <schemaBindings map="false">
+      <package name="com.iksgmbh.demo.hoo.invoice.api"/>
+    </schemaBindings>
+    <bindings scd="tns:CreateInvoiceRequest">
+      <class ref="com.iksgmbh.demo.hoo.invoice.api.CreateInvoiceRequest"/>
+    </bindings>
+    <bindings scd="tns:Invoice">
+      <class ref="com.iksgmbh.demo.hoo.invoice.api.Invoice"/>
+    </bindings>
+  </bindings>
+</bindings>
+

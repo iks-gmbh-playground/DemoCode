@@ -1,0 +1,98 @@
+<!-- The to files named HelloWorldService.xsd in the API and the SOAP project
+     MUST be IDENTICAL -->
+
+<!-- #####################################################
+     This file contains all definitions of all data types,
+     that are transferred by all HelloWorld operations.
+     ##################################################### -->
+
+<xs:schema 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+	xmlns:tns="http://test.de/api/" 
+    targetNamespace="http://test.de/api/" 
+	elementFormDefault="qualified" attributeFormDefault="qualified"
+    version="1.0">
+
+	
+    <!-- ############################################################### -->
+	<!-- ################# Types for sayHello operation ################ -->
+    <!-- ############################################################### -->
+
+	<xs:complexType name="SayHelloRequest">
+	    <xs:annotation>
+	    	<xs:documentation>Requests an hello text.</xs:documentation>
+	    </xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation><xs:documentation>Who is addressed?</xs:documentation></xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SayHelloResponse">
+	    <xs:annotation><xs:documentation>Contains the requested hello text.</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="helloText" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation><xs:documentation>Final price</xs:documentation></xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+    <!-- ######################################################################## -->
+	<!-- ################# Types for startSmallTalk operation ################ -->
+    <!-- ######################################################################## -->
+
+	<xs:complexType name="SmallTalkCommentRequest">
+	    <xs:annotation>
+	    	<xs:documentation>Requests a comment to start a small talk conversation.</xs:documentation>
+	    </xs:annotation>
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation><xs:documentation>Who is addressed?</xs:documentation></xs:annotation>
+			</xs:element>
+			<xs:element name="date" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation><xs:documentation>Current request date</xs:documentation></xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="SmallTalkCommentResponse">
+	    <xs:annotation><xs:documentation>Contains the requested greeting text.</xs:documentation></xs:annotation>
+		<xs:sequence>
+			<xs:element name="smallTalkComment" type="xs:string" minOccurs="1" maxOccurs="1">
+				<xs:annotation><xs:documentation>Final price</xs:documentation></xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+    <!-- ############################################################################## -->
+	<!-- ################# Common error types for all hello operations ################ -->
+    <!-- ############################################################################## -->
+
+    <xs:complexType name="HelloWorldServiceError">
+   	     <xs:annotation><xs:documentation>Provides error information about the hello operation.</xs:documentation></xs:annotation>
+         <xs:sequence>
+				<xs:element name="message" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:annotation><xs:documentation>Error message</xs:documentation></xs:annotation>
+				</xs:element>
+				<xs:element name="type" type="tns:ErrorType" minOccurs="1" maxOccurs="1">
+					<xs:annotation><xs:documentation>Error code</xs:documentation></xs:annotation>
+				</xs:element>
+				<xs:element name="operation" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:annotation><xs:documentation>origin of the error</xs:documentation></xs:annotation>
+				</xs:element>
+         </xs:sequence>
+    </xs:complexType>
+    
+	<!--  Enum type  -->
+	<xs:simpleType name="ErrorType">
+	    <xs:annotation><xs:documentation>Defines the direction (Import or Export)</xs:documentation></xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MISSING_INPUT"><xs:annotation><xs:documentation>Import</xs:documentation></xs:annotation></xs:enumeration>
+			<xs:enumeration value="INVALID_INPUT"><xs:annotation><xs:documentation>Export</xs:documentation></xs:annotation></xs:enumeration>
+			<xs:enumeration value="UNEXPECTED"><xs:annotation><xs:documentation>Export</xs:documentation></xs:annotation></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+    
+</xs:schema>

@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.iksgmbh.demo.hoo</groupId>
+  <artifactId>hoo-pseudomodmono-o-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>HOO Parent</name>
+  <packaging>pom</packaging>
+  
+  <modules>
+  	 <module>../hoo-pseudomodmono-o-control</module>
+  	 <module>../hoo-pseudomodmono-o-order</module>
+  	 <module>../hoo-pseudomodmono-o-horoscope</module>
+  	 <module>../hoo-pseudomodmono-o-invoice</module>
+  </modules>
+  
+  <dependencies>
+	
+    <dependency>
+        <groupId>com.iksgmbh</groupId>
+        <artifactId>sql-pojo-memo-db</artifactId>
+        <version>0.0.4</version>
+        <type>jar</type>
+        <scope>system</scope>
+        <systemPath>${project.basedir}/../hoo-pseudomodmono-o-parent/lib/sql-pojo-memo-db-0.0.4.jar</systemPath>
+    </dependency>
+
+    <dependency>
+        <groupId>joda-time</groupId>
+        <artifactId>joda-time</artifactId>
+        <version>2.9.4</version>
+        <scope>test</scope>
+    </dependency>
+	
+  	<dependency>
+    	<groupId>junit</groupId>
+    	<artifactId>junit</artifactId>
+    	<version>4.8.1</version>
+    	<scope>test</scope>
+	</dependency>	
+  	
+  </dependencies>  
+  
+  <build>
+  	<plugins>
+
+		<plugin>
+		  <groupId>org.apache.maven.plugins</groupId>
+		  <artifactId>maven-compiler-plugin</artifactId>
+		  <version>3.6.0</version>
+		  <configuration>
+		    <source>1.8</source>
+		    <target>1.8</target>
+		  </configuration>
+		</plugin>   	
+  	
+  	</plugins>
+  </build>  
+  
+</project>

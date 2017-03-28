@@ -1,0 +1,100 @@
+package com.iksgmbh.demo.hoo;
+
+import static org.junit.Assert.assertTrue;
+
+import org.joda.time.DateTime;
+import org.junit.Test;
+
+import com.iksgmbh.demo.hoo.requestresponse.HOO_OrderRequest;
+import com.iksgmbh.demo.hoo.requestresponse.HOO_OrderRequestImpl;
+import com.iksgmbh.demo.hoo.requestresponse.HOO_OrderResponse;
+
+/**
+ * Tests the classic monolith.
+ * 
+ * @author Reik Oberrath
+ */
+public class HOroscopeOnlineServiceTest {
+
+	private HOroscopeOnlineService sut = new HOroscopeOnlineService(); 
+
+	@Test
+	public void calculatesBasicPriceForUnkownHoroscopeType() {
+		// arrange
+		final HOO_OrderRequest request = new HOO_OrderRequestImpl("UnkownCustomer", "UnkownHoroscopeType", "10.10.1990");
+		
+		// act 
+		final HOO_OrderResponse result = sut.sendOrder(request);
+		
+		// assert
+		assertTrue("Unexpected Price", result.getBill().contains("10.49"));
+	}
+	
+	@Test
+	public void appliesDiscountForChilden() {
+		// arrange
+		DateTime d = new DateTime();
+		final HOO_OrderRequest request = new HOO_OrderRequestImpl("UnkownCustomer", "MISC", "1.1." + (d.getYear()-2));
+		
+		// act 
+		final HOO_OrderResponse result = sut.sendOrder(request);
+		
+		// assert
+		assertTrue("Unexpected Price", result.getBill().contains("5.24"));
+	}
+
+	@Test
+	public void appliesDiscountForOldies() {
+		// arrange
+		DateTime d = new DateTime();
+		final HOO_OrderRequest request = new HOO_OrderRequestImpl("UnkownCustomer", "MISC", "1.1." + (d.getYear()-99));
+		
+		// act 
+		final HOO_OrderResponse result = sut.sendOrder(request);
+		
+		// assert
+		assertTrue("Unexpected Price", result.getBill().contains("8.39"));
+	}
+	
+	@Test
+	public void appliesJobSurcharge() {
+		// arrange
+		DateTime d = new DateTime();
+		final HOO_OrderRequest request = new HOO_OrderRequestImpl("UnkownCustomer", "JOB", "1.1." + (d.getYear()-37));
+		
+		// act 
+		final HOO_OrderResponse result = sut.sendOrder(request);
+		
+		// assert
+		System.out.println(result.getBill());
+		assertTrue("Unexpected Price", result.getBill().contains("10.99"));
+	}
+	
+
+	@Test
+	public void appliesJobSurchargeAndOldiesDiscount() {
+		// arrange
+		DateTime d = new DateTime();
+		final HOO_OrderRequest request = new HOO_OrderRequestImpl("UnkownCustomer", "JOB", "1.1." + (d.getYear()-99));
+		
+		// act 
+		final HOO_OrderResponse result = sut.sendOrder(request);
+		
+		// assert
+		assertTrue("Unexpected Price", result.getBill().contains("8.99"));
+	}
+	
+	@Test
+	public void calculatesBasicPriceForLoveHoroscope() {
+		// arrange
+		DateTime d = new DateTime();
+		final HOO_OrderRequest request = new HOO_OrderRequestImpl("UnkownCustomer", "LOVE", "1.1." + (d.getYear()-37));
+		
+		// act 
+		final HOO_OrderResponse result = sut.sendOrder(request);
+		
+		// assert
+		assertTrue("Unexpected Price", result.getBill().contains("5.49"));
+	}	
+	
+}

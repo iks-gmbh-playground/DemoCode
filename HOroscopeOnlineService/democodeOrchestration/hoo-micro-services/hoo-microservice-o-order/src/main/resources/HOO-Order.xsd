@@ -1,0 +1,100 @@
+<!--
+===================================================================
+This file contains the definitions of all the data types,
+that are transferred by service methods of the HOOServiceOrder.
+===================================================================
+-->
+
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:tns="api.order.hoo.demo.iksgmbh.com"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" jaxb:version="2.1" 
+    targetNamespace="api.order.hoo.demo.iksgmbh.com"
+    elementFormDefault="qualified" attributeFormDefault="qualified"
+    version="1.0">
+
+    <xs:element name="CreateOrderRequest">
+        <xs:annotation>
+            <xs:documentation>Contains initial values to create a Order.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+            
+            	<!-- remitter data -->
+                <xs:element name="customerName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                
+                <!-- data on the person for which the horoscope refers -->
+                <xs:element name="birthdayOfTargetPerson" type="xs:string" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>Format: day.month.year (dd.MM.yyyy)</xs:documentation></xs:annotation>
+                </xs:element>
+                
+            	<!-- horoscope metadata -->
+                <xs:element name="horoscopeType" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Order">
+        <xs:annotation>
+            <xs:documentation>Entity created, saved and loaded by this service.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="orderNumber" type="xs:long" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="customerName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="horoscopeType" type="tns:HoroscopeType" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="ageOfTargetPerson" type="xs:long" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="creationDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="price" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="paid" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="horoscopeFetched" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+	<xs:element name="OrderList">
+	  <xs:complexType>
+	    <xs:sequence>
+	      <xs:element maxOccurs="unbounded" ref="tns:Order">
+	            <xs:annotation>
+                    <xs:appinfo>
+			    	<!-- This property makes JAXB to generate the file 'OrderList.java'
+			    	     with a custimized method name. This is helpful to
+			    	     get a plural term into the method name! -->
+                        <jaxb:property name="orders"/>
+                    </xs:appinfo>
+                </xs:annotation>
+	      </xs:element>
+	    </xs:sequence>
+	  </xs:complexType>
+	</xs:element>
+	
+    <xs:element name="PaymentRequest">
+        <xs:annotation>
+            <xs:documentation>Administration request to set the payment state of the order.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="orderNumber" type="xs:long" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>mandatory id field</xs:documentation></xs:annotation>
+                </xs:element>
+                <xs:element name="paid" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>mandatory payment state field</xs:documentation></xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>	
+      
+	<!--  Enum type  -->
+	<xs:simpleType name="HoroscopeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MISC"></xs:enumeration>
+			<xs:enumeration value="LOVE"></xs:enumeration>
+			<xs:enumeration value="JOB"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+    
+
+</xs:schema>

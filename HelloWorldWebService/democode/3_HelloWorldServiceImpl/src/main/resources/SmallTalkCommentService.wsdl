@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SmallTalkCommentService" 
+                  targetNamespace="http://net.moglicc.demo.webservice.smalltalkcomment/" 
+                  xmlns:tns="http://net.moglicc.demo.webservice.smalltalkcomment/" 
+                  xmlns:api="http://net.moglicc.demo.webservice.smalltalkcomment/" 
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://net.moglicc.demo.webservice.smalltalkcomment/"
+                  attributeFormDefault="qualified"
+                  elementFormDefault="qualified">
+                  
+           <xsd:include schemaLocation="SmallTalkCommentService.xsd"/>
+      
+			<xsd:element name="GiveSmallTalkCommentRequestWrapper">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="request"
+							         type="api:GiveSmallTalkCommentRequest" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+	
+	      	<xsd:element name="GiveSmallTalkCommentResponseWrapper">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="response"
+							         type="api:GiveSmallTalkCommentResponse" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+      	    <xsd:element name="ErrorWrapper">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="error"
+							         type="api:GiveSmallTalkCommentError" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+      </xsd:schema>
+   </wsdl:types>
+   
+  <wsdl:message name="giveSmallTalkCommentRequestMessage">
+    <wsdl:part name="parameters" element="tns:GiveSmallTalkCommentRequestWrapper"/> 
+  </wsdl:message>
+  
+  <wsdl:message name="giveSmallTalkCommentResponseMessage">
+    <wsdl:part name="parameters" element="tns:GiveSmallTalkCommentResponseWrapper"/>
+  </wsdl:message>
+  
+  <wsdl:message name="giveSmallTalkCommentExceptionMessage">
+    <wsdl:part name="error" element="tns:ErrorWrapper"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="SmallTalkComment">
+    <wsdl:operation name="giveSmallTalkComment">
+      <wsdl:input name="giveSmallTalkCommentRequest" message="tns:giveSmallTalkCommentRequestMessage"></wsdl:input>
+      <wsdl:output name="giveSmallTalkCommentResponse" message="tns:giveSmallTalkCommentResponseMessage"></wsdl:output>
+      <wsdl:fault name="giveSmallTalkCommentServiceException" message="tns:giveSmallTalkCommentExceptionMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  
+  <wsdl:binding name="SmallTalkCommentSoapBinding" type="tns:SmallTalkComment">
+  
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    
+    <wsdl:operation name="giveSmallTalkComment">
+      <soap:operation soapAction="http://localhost:8080/HelloWorldSoapService/services/HelloWorldServicePort/sayHello"/>
+      <wsdl:input name="giveSmallTalkCommentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="giveSmallTalkCommentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    
+  </wsdl:binding>
+  
+  <wsdl:service name="SmallTalkCommentService">
+    <wsdl:port name="SmallTalkCommentPort" binding="tns:SmallTalkCommentSoapBinding">
+      <soap:address location="http://localhost:8080/SmallTalkCommentService"/>
+    </wsdl:port>
+  </wsdl:service>
+  
+</wsdl:definitions>

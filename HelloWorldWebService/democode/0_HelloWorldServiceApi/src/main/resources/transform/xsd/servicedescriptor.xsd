@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.dhl.com/servicedescriptor/1.0"
+           xmlns:tns="http://www.dhl.com/servicedescriptor/1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           elementFormDefault="qualified" attributeFormDefault="unqualified"
+           version="1.1">
+  <xs:element name="servicedescriptor">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:general"/>
+        <xs:element ref="tns:classifications"/>
+        <xs:element minOccurs="0" ref="tns:clients"/>
+        <xs:element ref="tns:operations"/>
+        <xs:element minOccurs="0" ref="tns:rest-uris"/>
+        <xs:element maxOccurs="unbounded" ref="tns:bindings"/>     
+        <xs:element ref="tns:quality-of-service"/>
+        <xs:element ref="tns:dependencies"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="general">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:id"/>
+        <xs:element ref="tns:display-name"/>
+        <xs:element ref="tns:purpose"/>
+        <xs:element ref="tns:version"/>
+        <xs:element ref="tns:status"/>
+        <xs:element ref="tns:active-since"/>
+        <xs:element ref="tns:active-until"/>
+        <xs:element ref="tns:contacts"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="id" type="xs:string"/>
+  <xs:element name="display-name" type="xs:string"/>
+  <xs:element name="purpose" type="xs:string"/>
+  <xs:element name="version" type="xs:string"/>
+  <xs:element name="status" type="xs:string"/>
+  <xs:element name="active-since" type="xs:date"/>
+  <xs:element name="active-until" type="xs:date"/>
+  
+  <xs:element name="contacts">
+   <xs:complexType>
+    <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="tns:contact"/>
+      </xs:sequence>
+      </xs:complexType>
+  </xs:element>
+   
+  <xs:element name="contact">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:name"/>
+        <xs:element ref="tns:email"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="email" type="xs:string"/>
+  <xs:element name="classifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="tns:classification"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="classification">
+    <xs:complexType>
+      <xs:attribute name="type" use="required" type="xs:string"/>
+      <xs:attribute name="value" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="operations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:operation"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bindings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:binding"/>
+      </xs:sequence>
+      <xs:attribute name="stage" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="binding">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="tns:name"/>
+        <xs:element ref="tns:contract"/>
+        <xs:element ref="tns:endpoint"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="contract" type="xs:string"/>
+  <xs:element name="endpoint" type="xs:string"/>
+ 
+  <xs:element name="quality-of-service">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="operation" minOccurs="0" maxOccurs="unbounded" type="tns:qos-operation"/>
+      </xs:sequence>
+    </xs:complexType>  
+  </xs:element>
+  
+  <xs:element name="clients">
+    <xs:complexType>
+      <xs:sequence> 
+          <xs:element maxOccurs="unbounded" ref="tns:client"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+   
+   <xs:element name="client">  
+      <xs:complexType>
+    	<xs:attribute name="name" type="xs:string"/>
+      </xs:complexType>
+   </xs:element>
+  
+  <xs:element name="rest-uris">
+    <xs:complexType>
+      <xs:sequence> 
+           <xs:element maxOccurs="unbounded" ref="tns:rest-uri"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+   <xs:element name="rest-uri">      
+    <xs:complexType> 
+       <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:uri-parameter"/>
+       </xs:sequence>
+      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="mapped_to" type="xs:string"/>   
+      <xs:attribute name="http-method" type="tns:http-method"/>
+      <xs:attribute name="content-type" type="xs:string"/>
+      <xs:attribute name="accept" type="xs:string"/>
+      <xs:attribute name="purpose" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="dependencies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:dependency"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="dependency">
+    <xs:complexType>
+      <xs:attribute name="service-ref" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string"/>
+  <xs:complexType name="operation">
+    <xs:sequence>
+      <xs:element ref="tns:operation"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="operation">
+    <xs:complexType>
+      <xs:choice>
+        <xs:sequence>
+          <xs:element name="purpose" type="xs:string"/>
+          <xs:element ref="tns:in"/>
+          <xs:element ref="tns:out"/>
+          <xs:element ref="tns:error"/>
+        </xs:sequence>
+      </xs:choice>
+      <xs:attribute name="name" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+
+ 
+
+
+    <xs:complexType name="qos-operation">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:property"/>
+        </xs:sequence>
+     <xs:attribute name="name-ref" type="xs:string"/>
+    </xs:complexType>
+
+  <xs:element name="in">
+    <xs:complexType>
+      <xs:attribute name="ref" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="out">
+    <xs:complexType>
+      <xs:attribute name="ref" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="error">
+    <xs:complexType>
+      <xs:attribute name="ref" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="property">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:stage"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="stage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="tns:qos"/>
+      </xs:sequence>
+      <xs:attribute name="ref" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="qos">
+    <xs:complexType>
+      <xs:attribute name="binding-ref" use="required" type="xs:string"/>
+      <xs:attribute name="value" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="uri-parameter">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+      <xs:attribute name="purpose" type="xs:string"/>
+      <xs:attribute name="required" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  
+ <xs:simpleType name="http-method">
+  <xs:restriction base="xs:string">
+      <xs:enumeration value="GET"/>
+      <xs:enumeration value="PUT"/>
+      <xs:enumeration value="POST"/>
+      <xs:enumeration value="DELETE"/>
+      <xs:enumeration value="OPTIONAL"/>
+      <xs:enumeration value="HEAD"/>
+  </xs:restriction>
+</xs:simpleType>
+ 
+</xs:schema>

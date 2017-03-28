@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<servicedescriptor xmlns="http://www.dhl.com/servicedescriptor/1.0"
+    xmlns:tns="http://www.dhl.com/servicedescriptor/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:api="http://www.dhl.com/egts/webservice/spotcalc/api/model">
+    
+    <general>
+        <id>HelloWorldService</id>
+        <display-name>Hello World Service</display-name>
+        <purpose>Demo of MOGLiCC to autogenerte a WebService based on APACHE CXF and SSD</purpose>
+        <version>1.0</version>
+        <status>draft</status>
+        <active-since>2016-06-01</active-since>
+        <active-until>9999-12-31</active-until>
+        <contacts>
+            <contact>
+                <name>Reik Oberrath</name>
+                <email>R.Oberrath@iks-gmbh.com</email>
+            </contact>
+            <contact>
+                <name>MOGLiCC</name>
+                <email>https://github.com/iks-github/MOGLiCodeCreator/wiki</email>
+            </contact>
+        </contacts>
+    </general>
+
+    <classifications>
+        <classification type="layer" value="webservice"/>
+        <classification type="organization" value="IKS GmbH"/>
+        <classification type="domain" value="Demo of MOGLiCC, CXF WebService Technology and SSD"/>
+    </classifications>
+
+    <clients>
+      <client name="HelloWorldClient" />    
+    </clients>
+    
+    <operations>
+        <operation name="sayHello">
+            <purpose>Showing a simple web service call.</purpose>
+            <in ref="api:SpotPriceCalculatorRequest" />
+            <out ref="api:SpotPriceCalculatorResponse" />
+            <error ref="api:SpotPriceCalculatorError" />
+        </operation>
+    </operations>
+    
+    <bindings stage="development">
+        <binding name="SOAP-HTTP">
+            <contract>http://localhost:8080/services/spotcalc/soap?wsdl</contract>
+            <endpoint>http://localhost:8080/services/spotcalc/soap</endpoint>
+        </binding>
+    </bindings>
+
+    <quality-of-service>
+      <operation name-ref="sayHello">
+        <property name="security">
+          <stage ref="development">
+            <qos binding-ref="SOAP-HTTP" value="WS-Security"/>
+          </stage>
+        </property>
+      </operation>
+    </quality-of-service>
+    
+    <dependencies>
+      <dependency service-ref="to_be_defined"/>
+    </dependencies>
+
+</servicedescriptor>

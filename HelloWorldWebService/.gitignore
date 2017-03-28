@@ -1,0 +1,8 @@
+.metadata
+.sonarlint
+.project
+.classpath
+target/
+RemoteSystemsTempFiles/
+.settings/
+1_HelloWorldServiceApi/src/gen/

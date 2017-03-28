@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>hoo-pseudomodmono-o-invoice</artifactId>
+  <name>HOO Invoice</name>
+      
+  <parent>
+	  <groupId>com.iksgmbh.demo.hoo</groupId>
+	  <artifactId>hoo-pseudomodmono-o-parent</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+	  <relativePath>../hoo-pseudomodmono-o-parent/pom.xml</relativePath>
+  </parent>
+  
+  <dependencies>
+  
+  	<dependency>
+	  <groupId>com.iksgmbh.demo.hoo</groupId>
+	  <artifactId>hoo-pseudomodmono-o-horoscope</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+
+  	<dependency>
+  	  <!-- Note: this dependency is already implicitly by hoo-pseudomodmono-horoscope
+  	             and could be removed here, but better have it explicitly! -->
+	  <groupId>com.iksgmbh.demo.hoo</groupId>
+	  <artifactId>hoo-pseudomodmono-o-order</artifactId>
+	  <version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+
+  
+  </dependencies>
+  
+</project>

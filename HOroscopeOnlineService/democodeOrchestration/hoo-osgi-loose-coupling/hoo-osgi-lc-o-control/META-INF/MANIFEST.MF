@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HOO OSGI Service
+Bundle-SymbolicName: hoo-osgi-lc-o-control
+Bundle-ClassPath: .
+Bundle-Version: 1.0.0
+Bundle-Vendor: IKS GmbH
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: hoo-osgi-lc-o-horoscope;bundle-version="1.0.0",
+ hoo-osgi-lc-o-invoice;bundle-version="1.0.0",
+ hoo-osgi-lc-o-order;bundle-version="1.0.0"
+Import-Package: org.osgi.framework;version="1.8.0"
+Bundle-Activator: com.iksgmbh.demo.hoo.osgi.HooControlActivator
+Export-Package: com.iksgmbh.demo.hoo,
+ com.iksgmbh.demo.hoo.requestresponse
+Bundle-ActivationPolicy: lazy
