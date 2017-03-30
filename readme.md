@@ -8,12 +8,15 @@ Current content:
 
 
 1. HelloWorldService
+
 Challanges: Sustainable Service Design (SSD), REST with XML/JAXB, Soap, micro service architecture
 
 2. HOroscopeOnlineService (HOO)
+
 Challanges: Modularity, OSGi, micro service architecture (REST with XML/JAXB), Java Platform Module System (Java 9 modules)
 
 3. LunchService
+
 Challanges: JGiven, Testing, BDD-Tooling
 
 For more information see the [Wiki](https://github.com/iks-github/DemoCode/wiki).
