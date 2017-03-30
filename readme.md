@@ -7,10 +7,13 @@ A repository containing code to demonstrate solutions to certain coding challang
 Current content:
 
 
-APPLICATION NAME			CHALLANGES TO ILLUSTRATE
------------------------------------------------------------------------------------------------------------------------
-HelloWorldService			SSD, REST, Saop, micro service architecture
+1. HelloWorldService
+Challanges: Sustainable Service Design (SSD), REST with XML/JAXB, Soap, micro service architecture
 
-HOroscopeHonlineService		Modularity, OSGi, micro service architecture, Java Platform Module System (Java 9 modules) 
+2. HOroscopeOnlineService (HOO)
+Challanges: Modularity, OSGi, micro service architecture (REST with XML/JAXB), Java Platform Module System (Java 9 modules)
 
-LunchService                JGiven, Testing, BDD-Tooling
+3. LunchService
+Challanges: JGiven, Testing, BDD-Tooling
+
+For more information see the [Wiki](https://github.com/iks-github/DemoCode/wiki).
