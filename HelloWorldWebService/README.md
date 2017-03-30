@@ -1,10 +1,5 @@
-# Der HelloWorldWebService
+#HelloWorldService
 
-Die Quellen in diesem Repository stammen nicht von mir, sondern von meinem Kollegen Reik Oberrath. Ich stelle sie hier nur zur Verfügung. 
+The HelloWorldService demonstrates the application of the Sustainable Service Design (SSD), the micro service architecture and communication via Rest/Jersey/XML and Soap.
 
-Absicht der Realisierung dieser Model-Implementierung eines Webservices ist
-
-1. das Sustainable Service Design (SSD von Wolfgang Pleus) zu veranschaulichen
-2. die Bedeutung von Testbarkeit, insbesondere ihre Granularität und Detailierungsgrade (im IKS-Vortrag „Zwiebelschalen“ genannt), für die Teststrategie zu veranschaulichen
-
-Weitere Details findet Ihr im [Wiki](https://github.com/rubberbandman62/HelloWorldWebService/wiki/Implementierung,-Test-und-Deployment)
+For more information see the [Wiki](https://github.com/iks-github/DemoCode/wiki/HelloWorldService).
