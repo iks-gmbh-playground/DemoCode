@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>SmallTalkCommentSoapService</artifactId>
+  <packaging>war</packaging>
+  <description>A NON-SSD webservice used by HelloWorldService. Serves as antipattern demonstration of a webservice</description>
+
+  <parent>
+       <groupId>HelloWorldService</groupId>
+       <artifactId>HelloWorldServiceParent</artifactId>
+       <version>0.0.1-SNAPSHOT</version>
+       <relativePath>../HelloWorldServiceParent/pom.xml</relativePath>
+   </parent>  
+ 
+  <properties>
+        <cxf.scope>runtime</cxf.scope>
+        <cxf.version>3.1.6</cxf.version>
+        <spring.version>4.1.9.RELEASE</spring.version>
+  </properties>
+  
+  <dependencies>
+  
+	  <dependency>
+	  	  <groupId>joda-time</groupId>
+	  	  <artifactId>joda-time</artifactId>
+	  	  <version>2.9.3</version>
+	  </dependency>           
+  
+       <!-- apache cxf -->
+       <dependency>
+           <groupId>org.apache.cxf</groupId>
+           <artifactId>cxf-rt-frontend-jaxws</artifactId>
+           <version>${cxf.version}</version>
+           <scope>${cxf.scope}</scope>
+       </dependency>
+       <dependency>
+           <groupId>org.apache.cxf</groupId>
+           <artifactId>cxf-rt-transports-http</artifactId>
+           <version>${cxf.version}</version>
+           <scope>${cxf.scope}</scope>
+       </dependency>
+       <dependency>
+           <groupId>org.apache.cxf</groupId>
+           <artifactId>cxf-rt-ws-security</artifactId>
+           <version>${cxf.version}</version>
+           <scope>${cxf.scope}</scope>
+       </dependency>
+
+       <dependency>
+           <groupId>org.apache.cxf</groupId>
+           <artifactId>cxf-tools-common</artifactId>
+           <version>${cxf.version}</version>
+           <scope>${cxf.scope}</scope>
+       </dependency>
+
+       <dependency>
+           <groupId>org.apache.cxf.xjc-utils</groupId>
+           <artifactId>cxf-xjc-runtime</artifactId>
+           <version>3.0.5</version>
+           <scope>${cxf.scope}</scope>
+       </dependency>
+       
+       <!-- spring framework 4.1.0 -->
+       <dependency>
+           <groupId>org.springframework</groupId>
+           <artifactId>spring-web</artifactId>
+           <version>${spring.version}</version>
+           <scope>${cxf.scope}</scope>
+       </dependency>
+
+  </dependencies>
+  
+  <build>
+    <plugins>
+    
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.6</version>
+          <configuration>
+            <warName>SmallTalkCommentService</warName>
+            <warSourceDirectory>WebContent</warSourceDirectory>
+          </configuration>
+        </plugin>
+        
+		<plugin>
+			<groupId>org.jvnet.jaxb2.maven2</groupId>
+			<artifactId>maven-jaxb2-plugin</artifactId>
+			<version>0.12.1</version>
+				
+			<executions>
+				<execution>
+					<goals>
+						<goal>generate</goal>
+					</goals>
+				</execution>
+			</executions>
+			
+       		<configuration>
+              		<schemaDirectory>${basedir}/WebContent/wsdl</schemaDirectory>
+              		<generateDirectory>${basedir}/src/gen/java</generateDirectory>
+              		<generatePackage>net.moglicc.demo.webservice.smalltalkcomment.autogen</generatePackage>
+              		<removeOldOutput>true</removeOldOutput>
+            </configuration>
+         </plugin>
+        
+      
+    </plugins>
+  </build>
+
+</project>

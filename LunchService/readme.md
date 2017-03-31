@@ -1,4 +1,4 @@
-#LunchService
+**LunchService**
 
 The LunchService demonstrates the appication of JGiven, a BDD testing API for Java.
 

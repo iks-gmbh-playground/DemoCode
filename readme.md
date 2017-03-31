@@ -1,4 +1,4 @@
-#Demo Code
+**Demo Code**
 
 A repository containing code to demonstrate solutions to certain coding challanges.
 

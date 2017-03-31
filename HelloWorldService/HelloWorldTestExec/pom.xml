@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>HelloWorldTestExec</artifactId>
+  
+    <parent>
+       <groupId>HelloWorldService</groupId>
+       <artifactId>HelloWorldServiceParent</artifactId>
+       <version>0.0.1-SNAPSHOT</version>
+       <relativePath>../HelloWorldServiceParent/pom.xml</relativePath>
+   </parent>
+   
+   <dependencies>
+   
+      <!-- Needed for the class level tests. 
+           Unfortunately, this does not make the @ClassnameFilters filter in ClassLevelTestSuite
+           to find the test classes in the other modules. Therefore, these
+           dependencies must be defined in the project properties of the IDE. -->
+      
+      <dependency>
+      	  <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldServiceApiUtils</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+      	  <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldServiceImpl</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+      	  <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldSmallTalkCommentProvider</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+      
+      
+      <!-- Needed for the component level tests -->
+   
+      <dependency>
+      	  <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldServiceSoap</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+  
+      <dependency>
+      	  <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldServiceImpl</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+      
+      <dependency>
+      	  <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldSmallTalkCommentProvider</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+      
+      <dependency>
+      	  <groupId>HelloWorldService</groupId>
+          <artifactId>SmallTalkCommentSoapService</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+      
+         
+      <!-- Needed for the system level tests -->
+      
+      <dependency>
+      	  <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldJavaClient</artifactId>
+          <version>${project.version}</version>
+          <scope>test</scope>
+      </dependency>
+        
+   </dependencies>
+   
+   <description>Contains suites to execute class based, component based and system based tests.</description>
+</project>
