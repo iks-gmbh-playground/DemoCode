@@ -1,1 +1,1 @@
-These are different implementations of the HOO service that are follow the orchestration design.
+These are different implementations of the HOO service that follow the orchestration design.

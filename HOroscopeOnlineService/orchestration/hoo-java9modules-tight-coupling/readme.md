@@ -1,6 +1,6 @@
 This is a approach with Java 9 modules to modularize the HOO service in the orchestration design. The modules are tightly coupled in this implementation.
 
-Note: to compile and run the code you need a JDK 9 Early Access Release. See [[https://jdk9.java.net/download/]].
+Note: to compile and run the code you need a JDK 9 Early Access Release. See https://jdk9.java.net/download.
 
 
 Adapt path setting in compileWithJava9.bat and execute-java9modules-tc-o.bat to point to a Java9 SDK in your local file system.
