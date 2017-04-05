@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlSeeAlso;
 @SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
 public interface SmallTalkComment {
 
-    @WebMethod(action = "http://localhost:8080/HelloWorldSoapService/services/HelloWorldServicePort/sayHello")
+    @WebMethod(action = "http://localhost:18080/HelloWorldSoapService/services/HelloWorldServicePort/sayHello")
     @WebResult(name = "GiveSmallTalkCommentResponseWrapper", targetNamespace = "http://net.moglicc.demo.webservice.smalltalkcomment/", partName = "parameters")
     public GiveSmallTalkCommentResponseWrapper giveSmallTalkComment(
         @WebParam(partName = "parameters", name = "GiveSmallTalkCommentRequestWrapper", targetNamespace = "http://net.moglicc.demo.webservice.smalltalkcomment/")

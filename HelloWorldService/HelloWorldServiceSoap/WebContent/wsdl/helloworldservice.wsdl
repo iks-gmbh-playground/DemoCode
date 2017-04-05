@@ -101,7 +101,7 @@
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     
     <wsdl:operation name="sayHello">
-      <soap:operation soapAction="http://localhost:8080/HelloWorldSoapService/services/HelloWorldServicePort/sayHello"/>
+      <soap:operation soapAction="http://localhost:18080/HelloWorldSoapService/services/HelloWorldServicePort/sayHello"/>
       <wsdl:input name="sayHelloRequest">
         <soap:body use="literal"/>
       </wsdl:input>
@@ -111,7 +111,7 @@
     </wsdl:operation>
     
     <wsdl:operation name="startSmallTalk">
-      <soap:operation soapAction="http://localhost:8080/HelloWorldSoapService/services/HelloWorldServicePort/startSmallTalk"/>
+      <soap:operation soapAction="http://localhost:18080/HelloWorldSoapService/services/HelloWorldServicePort/startSmallTalk"/>
       <wsdl:input name="SmallTalkCommentRequest">
         <soap:body use="literal"/>
       </wsdl:input>
@@ -124,7 +124,7 @@
   
   <wsdl:service name="HelloWorldSoapService">
     <wsdl:port name="HelloWorldServicePort" binding="tns:HelloWorldServiceSoapBinding">
-      <soap:address location="http://localhost:8080/HelloWorldSoapService"/>
+      <soap:address location="http://localhost:18080/HelloWorldSoapService"/>
     </wsdl:port>
   </wsdl:service>
   

@@ -13,7 +13,7 @@ import javax.xml.ws.WebServiceFeature;
  * This class represents the WebService for the client side. 
  */
 @WebServiceClient(name = "HelloWorldSoapService", 
-                  wsdlLocation = "http://localhost:8080/HelloWorldSoapService/services/HelloWorldServicePort?wsdl",
+                  wsdlLocation = "http://localhost:18080/HelloWorldSoapService/services/HelloWorldServicePort?wsdl",
                   targetNamespace = "http://test.de/") 
 public class HelloWorldServiceClientProxy extends Service {
 
@@ -24,11 +24,11 @@ public class HelloWorldServiceClientProxy extends Service {
     static {
         URL url = null;
         try {
-            url = new URL("http://localhost:8080/HelloWorldSoapService/services/HelloWorldServicePort?wsdl");
+            url = new URL("http://localhost:18080/HelloWorldSoapService/services/HelloWorldServicePort?wsdl");
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(HelloWorldServiceClientProxy.class.getName())
                 .log(java.util.logging.Level.INFO, 
-                     "Can not initialize the default wsdl from {0}", "http://localhost:8080/HelloWorldSoapService/services/HelloWorldServicePort?wsdl");
+                     "Can not initialize the default wsdl from {0}", "http://localhost:18080/HelloWorldSoapService/services/HelloWorldServicePort?wsdl");
         }
         WSDL_LOCATION = url;
     }

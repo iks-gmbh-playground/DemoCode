@@ -42,7 +42,13 @@
           <artifactId>HelloWorldServiceSoap</artifactId>
           <version>${project.version}</version>
       </dependency>
-  
+      
+      <dependency>
+      	  <groupId>HelloWorldService</groupId>
+          <artifactId>HelloWorldServiceRest</artifactId>
+          <version>${project.version}</version>
+      </dependency>
+        
       <dependency>
       	  <groupId>HelloWorldService</groupId>
           <artifactId>HelloWorldServiceImpl</artifactId>

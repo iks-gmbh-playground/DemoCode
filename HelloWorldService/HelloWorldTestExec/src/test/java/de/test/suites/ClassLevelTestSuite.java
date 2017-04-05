@@ -18,7 +18,7 @@ import org.junit.extensions.cpsuite.ClasspathSuite;
 import org.junit.extensions.cpsuite.ClasspathSuite.ClassnameFilters;
 import org.junit.runner.RunWith;
 
-// Executes Tests for all scopes (Unit, Integration, End-To-End) on class level
+// Executes classic Unit Tests on class level
 
 @RunWith(ClasspathSuite.class)
 @ClassnameFilters({".*ClassLevelTest"})

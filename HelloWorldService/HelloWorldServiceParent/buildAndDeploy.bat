@@ -60,4 +60,4 @@ echo.
 echo.
 
 echo If your Tomcat is running locally then call following URL in your web browser:
-echo "http://localhost:8080/HelloWorldWebClient/"
+echo "http://localhost:18080/HelloWorldWebClient/"

@@ -59,7 +59,7 @@
 		                
 		                <wsdlOptions>
 		                    <wsdlOption>
-		                         <wsdl>http://localhost:8080/SmallTalkCommentService/services/SmallTalkComment?wsdl</wsdl>
+		                         <wsdl>http://localhost:18080/SmallTalkCommentService/services/SmallTalkComment?wsdl</wsdl>
 		                    </wsdlOption>
 		                </wsdlOptions>
   	-->

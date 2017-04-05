@@ -8,6 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import de.test.api.HelloWorld;
 import de.test.api.HelloWorldServiceException;
 import de.test.api.autogen.SayHelloRequest;
 import de.test.api.autogen.SayHelloResponse;
@@ -22,11 +23,13 @@ import de.test.api.jaxbdo.JaxbSmallTalkCommentResponse;
  * between the service impl and service api.
  */
 @Path("/")
-public class HelloWorldServiceRESTWrapper 
+public class HelloWorldServiceRESTWrapper implements HelloWorld
 {
 	private static final Logger LOGGER = Logger.getLogger("HelloWorldServiceRESTWrapper");
 
-	private HelloWorldServiceImpl helloWorldService = new HelloWorldServiceImpl();
+	// do not set private due to access from 
+	// HelloWorldTestExec#SmallTalkCommentIntegrationVariant2Test.createHelloWorldServiceRestWrapper
+	HelloWorldServiceImpl helloWorldService = new HelloWorldServiceImpl();
 	
 	@PUT
 	@Path("/sayHello")

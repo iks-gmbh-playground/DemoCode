@@ -15,7 +15,7 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "SmallTalkCommentService", 
-                  wsdlLocation = "http://localhost:8080/SmallTalkCommentService/services/SmallTalkComment?wsdl",
+                  wsdlLocation = "http://localhost:18080/SmallTalkCommentService/services/SmallTalkComment?wsdl",
                   targetNamespace = "http://net.moglicc.demo.webservice.smalltalkcomment/") 
 public class SmallTalkCommentService extends Service {
 
@@ -26,11 +26,11 @@ public class SmallTalkCommentService extends Service {
     static {
         URL url = null;
         try {
-            url = new URL("http://localhost:8080/SmallTalkCommentService/services/SmallTalkComment?wsdl");
+            url = new URL("http://localhost:18080/SmallTalkCommentService/services/SmallTalkComment?wsdl");
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(SmallTalkCommentService.class.getName())
                 .log(java.util.logging.Level.INFO, 
-                     "Can not initialize the default wsdl from {0}", "http://localhost:8080/SmallTalkCommentService/services/SmallTalkComment?wsdl");
+                     "Can not initialize the default wsdl from {0}", "http://localhost:18080/SmallTalkCommentService/services/SmallTalkComment?wsdl");
         }
         WSDL_LOCATION = url;
     }

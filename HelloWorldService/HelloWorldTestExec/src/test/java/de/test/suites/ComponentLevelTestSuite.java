@@ -8,6 +8,9 @@ import de.test.SayHelloIntegrationTest;
 import de.test.SmallTalkCommentIntegrationVariant1Test;
 import de.test.SmallTalkCommentIntegrationVariant2Test;
 
+
+// Executes integration tests on component level 
+
 @RunWith(Suite.class)
 @SuiteClasses({ SayHelloIntegrationTest.class, 
 	            SmallTalkCommentIntegrationVariant1Test.class,

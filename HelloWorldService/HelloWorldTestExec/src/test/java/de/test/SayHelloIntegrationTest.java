@@ -14,8 +14,8 @@ import de.test.util.TestDataProvider;
 
 /**
  * This integration test does NOT depend on a running Tomcat 
- * because the service methods tested here do not use
- * the SmallTalkCommentSoapService.
+ * because the service methods tested here are called by class references (not by URI call)
+ * and do not use the SmallTalkCommentSoapService.
  * 
  * @author Reik Oberrath
  */

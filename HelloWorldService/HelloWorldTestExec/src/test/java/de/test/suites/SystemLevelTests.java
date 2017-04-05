@@ -8,9 +8,7 @@ import de.test.HelloWorldSoapRequestExecutor;
 import de.test.util.TestDataProvider;
 
 /**
- * These system tests depend on TomCat on which the 
- * services to test are deployed.
- * One test methods represend a unit, another a integration test. 
+ * These system tests depend on TomCat on which the services to test are deployed.
  * 
  * @author Reik Oberrath
  */
