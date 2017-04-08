@@ -3,7 +3,7 @@ set JAVA_HOME="C:\dev\java\jdk1.8.0_65"
 
 set mavenHome="C:\dev\maven\apache-maven-3.2.5"
 
-call %mavenHome%\bin\mvn clean install
+rem call %mavenHome%\bin\mvn clean install
 
 cd..
 
@@ -60,4 +60,4 @@ echo.
 echo.
 
 echo If your Tomcat is running locally then call following URL in your web browser:
-echo "http://localhost:18080/HelloWorldWebClient/"
+echo "http://localhost:8080/HelloWorldWebClient/"

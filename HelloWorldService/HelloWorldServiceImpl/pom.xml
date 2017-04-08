@@ -51,15 +51,18 @@
 		            <configuration>
 		                <sourceRoot>${basedir}/src/gen/java</sourceRoot>
 		                
-  	<!-- This code generation is only necessary after the SmallTalkCommentService has been modified.
-  	     Precondition to run the code generation successfully is, that 
-  	     1. the wsdlOptions are commented in
-  	     2. target must have been cleaned
-  	     3. the Tomcat with the SmallTalkCommentService deployed is running under the url configured below:
+  	<!-- From this project/module the SmallTalkCommentService is used as client.
+  	     Thus, the wsdl to build the necessary java code need to be fetched from the actual and running SmallTalkCommentService.
+  	     However, this code generation is only necessary after the SmallTalkCommentService has been modified.
+  	     The currently existing sources in src/gen/java should be actual. If not do the following:
+  	     1. comment in the wsdlOptions below
+  	     2. delete old java files in src/gen/java
+  	     3. Start Tomcat under the url configured in the wsdlOptions
+  	     4. have the current SmallTalkCommentService deployed on the Tomcat 
 		                
 		                <wsdlOptions>
 		                    <wsdlOption>
-		                         <wsdl>http://localhost:18080/SmallTalkCommentService/services/SmallTalkComment?wsdl</wsdl>
+		                         <wsdl>http://localhost:8080/SmallTalkCommentService/services/SmallTalkComment?wsdl</wsdl>
 		                    </wsdlOption>
 		                </wsdlOptions>
   	-->

@@ -96,7 +96,7 @@ public class SmallTalkCommentHelper
         if (requestDate != null)
         {
         	GregorianCalendar c = new GregorianCalendar();
-        	c.setTime(requestDate);
+        	c.setTimeInMillis(requestDate.getTime());
         	XMLGregorianCalendar date = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
         	request.setDate(date);
         }

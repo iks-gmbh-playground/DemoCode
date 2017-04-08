@@ -49,7 +49,7 @@ public final class HelloWorldRestRequestExecutor {
         
     	ClientConfig config = new DefaultClientConfig();
     	Client client = Client.create(config);
-    	SmallTalkCommentResponse result = client.resource("http://localhost:18080/HelloWorldRestService/services/startSmalltalk")
+    	SmallTalkCommentResponse result = client.resource("http://localhost:8080/HelloWorldRestService/services/startSmalltalk")
    	                                            .type(MediaType.APPLICATION_XML)
    	                                            .accept(MediaType.APPLICATION_XML).put(SmallTalkCommentResponse.class, 
    	                                            		                               requestWrapper.request);
@@ -71,7 +71,7 @@ public final class HelloWorldRestRequestExecutor {
         
     	ClientConfig config = new DefaultClientConfig();
     	Client client = Client.create(config);
-    	SayHelloResponse result = client.resource("http://localhost:18080/HelloWorldRestService/services/sayHello")
+    	SayHelloResponse result = client.resource("http://localhost:8080/HelloWorldRestService/services/sayHello")
    	                                    .type(MediaType.APPLICATION_XML)
    	                                    .accept(MediaType.APPLICATION_XML).put(SayHelloResponse.class, 
    	                                         		                           requestWrapper.request);    	 

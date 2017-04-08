@@ -68,7 +68,7 @@
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
     
     <wsdl:operation name="giveSmallTalkComment">
-      <soap:operation soapAction="http://localhost:18080/HelloWorldSoapService/services/HelloWorldServicePort/sayHello"/>
+      <soap:operation soapAction="http://localhost:8080/HelloWorldSoapService/services/HelloWorldServicePort/sayHello"/>
       <wsdl:input name="giveSmallTalkCommentRequest">
         <soap:body use="literal"/>
       </wsdl:input>
@@ -81,7 +81,7 @@
   
   <wsdl:service name="SmallTalkCommentService">
     <wsdl:port name="SmallTalkCommentPort" binding="tns:SmallTalkCommentSoapBinding">
-      <soap:address location="http://localhost:18080/SmallTalkCommentService"/>
+      <soap:address location="http://localhost:8080/SmallTalkCommentService"/>
     </wsdl:port>
   </wsdl:service>
   

@@ -46,8 +46,8 @@
     
     <bindings stage="development">
         <binding name="SOAP-HTTP">
-            <contract>http://localhost:18080/services/spotcalc/soap?wsdl</contract>
-            <endpoint>http://localhost:18080/services/spotcalc/soap</endpoint>
+            <contract>http://localhost:8080/services/spotcalc/soap?wsdl</contract>
+            <endpoint>http://localhost:8080/services/spotcalc/soap</endpoint>
         </binding>
     </bindings>
 

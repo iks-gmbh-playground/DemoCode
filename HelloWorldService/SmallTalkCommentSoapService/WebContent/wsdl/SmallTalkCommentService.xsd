@@ -8,7 +8,7 @@
     
 	<xs:complexType name="GiveSmallTalkCommentRequest">
 		<xs:sequence>
-			<xs:element name="date" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="date" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 

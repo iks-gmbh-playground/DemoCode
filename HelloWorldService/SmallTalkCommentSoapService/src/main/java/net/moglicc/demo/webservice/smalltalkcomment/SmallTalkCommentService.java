@@ -53,7 +53,7 @@ public class SmallTalkCommentService
 			if (requestDate.getHourOfDay() < 4) {
 				comment = "Hello, " + comment; 
 			}
-			else if (requestDate.getHourOfDay() < 12) {  // TODO does not work on Tomcat! Why?
+			else if (requestDate.getHourOfDay() < 12) {  
 				comment = "Good morning, " + comment; 
 			}
 			else if (requestDate.getHourOfDay() < 16) {

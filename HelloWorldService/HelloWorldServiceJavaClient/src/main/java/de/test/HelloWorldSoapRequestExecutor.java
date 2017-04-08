@@ -17,8 +17,8 @@ import de.test.api.utils.XMLGregorianCalendarUtil;
  * 
  * @author Reik Oberrath
  */
-public final class HelloWorldSoapRequestExecutor {
-
+public final class HelloWorldSoapRequestExecutor 
+{
     private static final QName SERVICE_NAME = new QName("http://test.de/", "HelloWorldSoapService");
 	private static boolean startedFromMain = false;
 
@@ -59,7 +59,6 @@ public final class HelloWorldSoapRequestExecutor {
        		System.out.println(ex.toString());
        		return "ERROR: " + ex.getMessage();
        }
-
     }    
     
     /**
@@ -67,7 +66,8 @@ public final class HelloWorldSoapRequestExecutor {
      * @param name to be used in the request
      * @return helloText contained in the response or error message
      */
-    public static String sendSayHelloWordRequest(final String name) {
+    public static String sendSayHelloWordRequest(final String name) 
+    {
         HelloWorldService servicePort = createServicePort();
         SayHelloRequestWrapper requestWrapper = createSayHelloRequest(name);
         systemOutRequest(requestWrapper);

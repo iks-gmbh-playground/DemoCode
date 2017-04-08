@@ -3,10 +3,8 @@ package de.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import de.test.HelloWorldServiceSoapWrapper;
 import de.test.api.HelloWorld;
 import de.test.api.autogen.SayHelloRequest;
 import de.test.api.autogen.SayHelloResponse;
@@ -22,28 +20,26 @@ import de.test.util.TestDataProvider;
 public class SayHelloIntegrationTest {
 	
 	private HelloWorld helloWorldServiceSoapWrapper = new HelloWorldServiceSoapWrapper();
-	private SayHelloRequest standardSayHelloRequest;
-	
-	@Before
-	public void setup() {
-		standardSayHelloRequest = TestDataProvider.createStandardSayHelloRequest();
-	}
+	private HelloWorld helloWorldServiceRestWrapper = new HelloWorldServiceRESTWrapper(); 
+	private SayHelloRequest standardSayHelloRequest = TestDataProvider.createStandardSayHelloRequest();
 	
 	@Test
 	public void returnsHelloForName() throws Exception {
 		// arrange
-		final String testName = "Integrationstest";
-		standardSayHelloRequest.setName( testName );
+		standardSayHelloRequest.setName( "SoapIntegrationstest" );
 		
 		// act
-		final SayHelloResponse result = helloWorldServiceSoapWrapper.sayHello( standardSayHelloRequest );
+		final SayHelloResponse soapResult = helloWorldServiceSoapWrapper.sayHello( standardSayHelloRequest);
+		standardSayHelloRequest.setName( "RestIntegrationstest" );
+		final SayHelloResponse restResult = helloWorldServiceRestWrapper.sayHello( standardSayHelloRequest );
 		
 		// assert
-		assertEquals("result", "Hello Integrationstest!", result.getHelloText());
+		assertEquals("result", "Hello SoapIntegrationstest!", soapResult.getHelloText());
+		assertEquals("result", "Hello RestIntegrationstest!", restResult.getHelloText());
 	}
 
 	@Test
-	public void throwsExceptionForMissingNameInSayHelloRequest() throws Exception {
+	public void throwsExceptionForMissingNameInSoapSayHelloRequest() throws Exception {
 		// arrange
 		standardSayHelloRequest.setName( null );
 		
@@ -59,4 +55,21 @@ public class SayHelloIntegrationTest {
 		}
 	}
 
+	@Test
+	public void throwsExceptionForMissingNameInRestSayHelloRequest() throws Exception {
+		// arrange
+		standardSayHelloRequest.setName( null );
+		
+		try {
+			// act
+			helloWorldServiceRestWrapper.sayHello( standardSayHelloRequest );
+			fail("Expected exception was not thrown!");
+		} catch (Exception e) {
+			// assert
+			assertEquals("Error message", 
+					     "java.lang.IllegalArgumentException: Name is missing.", 
+					     e.getMessage());
+		}
+	}
+	
 }

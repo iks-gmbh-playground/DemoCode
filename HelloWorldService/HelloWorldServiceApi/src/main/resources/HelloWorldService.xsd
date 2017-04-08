@@ -51,7 +51,7 @@
 			<xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1">
 				<xs:annotation><xs:documentation>Who is addressed?</xs:documentation></xs:annotation>
 			</xs:element>
-			<xs:element name="date" type="xs:date" minOccurs="0" maxOccurs="1">
+			<xs:element name="date" type="xs:dateTime" minOccurs="0" maxOccurs="1">
 				<xs:annotation><xs:documentation>Current request date</xs:documentation></xs:annotation>
 			</xs:element>
 		</xs:sequence>
