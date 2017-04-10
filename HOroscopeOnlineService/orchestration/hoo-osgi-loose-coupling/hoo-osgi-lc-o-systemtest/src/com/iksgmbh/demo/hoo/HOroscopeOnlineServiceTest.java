@@ -43,7 +43,7 @@ public class HOroscopeOnlineServiceTest {
 	}
 
 	@Test
-	public void appliesDiscountForOldies() {
+	public void appliesSurchargeForOldies() {
 		// arrange
 		DateTime d = new DateTime();
 		final HOO_OrderRequest request = new HOO_OrderRequest("UnkownCustomer", "MISC", "1.1." + (d.getYear()-99));
@@ -52,37 +52,9 @@ public class HOroscopeOnlineServiceTest {
 		final HOO_OrderResponse result = sut.sendOrder(request);
 		
 		// assert
-		assertTrue("Unexpected Price", result.getBill().contains("8.39"));
-	}
-	
-	@Test
-	public void appliesJobSurcharge() {
-		// arrange
-		DateTime d = new DateTime();
-		final HOO_OrderRequest request = new HOO_OrderRequest("UnkownCustomer", "JOB", "1.1." + (d.getYear()-37));
-		
-		// act 
-		final HOO_OrderResponse result = sut.sendOrder(request);
-		
-		// assert
-		System.out.println(result.getBill());
-		assertTrue("Unexpected Price", result.getBill().contains("10.99"));
-	}
-	
+		assertTrue("Unexpected Price", result.getBill().contains("11.54"));
+	}	
 
-	@Test
-	public void appliesJobSurchargeAndOldiesDiscount() {
-		// arrange
-		DateTime d = new DateTime();
-		final HOO_OrderRequest request = new HOO_OrderRequest("UnkownCustomer", "JOB", "1.1." + (d.getYear()-99));
-		
-		// act 
-		final HOO_OrderResponse result = sut.sendOrder(request);
-		
-		// assert
-		assertTrue("Unexpected Price", result.getBill().contains("8.99"));
-	}
-	
 	@Test
 	public void calculatesBasicPriceForLoveHoroscope() {
 		// arrange

@@ -38,8 +38,9 @@ public class HoroscopeStore
     private static final Logger LOGGER = Logger.getLogger("HoroscopeServiceImpl");
 
 	private static final BigDecimal DISCOUNT_FOR_KIDS = new BigDecimal(0.5);
-	private static final BigDecimal DISCOUNT_FOR_OLDIES = new BigDecimal(0.2);
-	private static final BigDecimal SURCHARGE_FOR_WORKING_PEOPLE = new BigDecimal(0.1);
+	private static final BigDecimal SURCHARGE_FOR_OLDIES = new BigDecimal(0.1);
+	private static final int AGE_LIMIT_KIDS = 10;
+	private static final int AGE_LIMIT_OLDIES = 60;
 
     private HoroscopeDAO horoscopeDAO = new HoroscopeDAO(SqlPojoMemoDB.getConnection());
 
@@ -124,7 +125,6 @@ public class HoroscopeStore
 		
 		if (order.getHoroscopeType() == HoroscopeType.JOB) {
 			horoscopeText = "Divide and rule!";
-			invoiceFactor = invoiceFactor.add(SURCHARGE_FOR_WORKING_PEOPLE);
 		} else if (order.getHoroscopeType() == HoroscopeType.LOVE) {
 			horoscopeText = "Don''t worry, be happy.";
 		} else {
@@ -133,11 +133,11 @@ public class HoroscopeStore
 		
 		horoscope.setHoroscopeText(horoscopeText);
 		
-		if (order.getAgeOfTargetPerson() < 16 ) {
+		if (order.getAgeOfTargetPerson() < AGE_LIMIT_KIDS ) {
 			invoiceFactor = invoiceFactor.subtract(DISCOUNT_FOR_KIDS);
-		} else if (order.getAgeOfTargetPerson() > 70 ) {
-			invoiceFactor = invoiceFactor.subtract(DISCOUNT_FOR_OLDIES);
-		}
+		} else if (order.getAgeOfTargetPerson() > AGE_LIMIT_OLDIES ) {
+			invoiceFactor = invoiceFactor.add(SURCHARGE_FOR_OLDIES);
+		}	
 		
 		horoscope.setInvoiceFactor(invoiceFactor);
 		horoscope.setHoroscopeType(order.getHoroscopeType());

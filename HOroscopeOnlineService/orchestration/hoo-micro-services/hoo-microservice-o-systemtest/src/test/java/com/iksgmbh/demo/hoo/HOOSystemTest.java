@@ -43,7 +43,7 @@ public class HOOSystemTest
 
         // assert
         assertTrue("unexpected order number", result.getOrderNumber() >= timestamp );
-        assertEquals("result", "Please pay 10.99 Euro.", result.getBill());
+        assertEquals("result", "Please pay 9.99 Euro.", result.getBill());
         assertEquals("result", "Horoscope for order " + result.getOrderNumber() 
                                                       + " is not yet available. Please pay your bill.", 
         		               result.getStatusInfo());
@@ -62,7 +62,7 @@ public class HOOSystemTest
 		final HOOHoroscopeResponse response2 = fetchHoroscope(request2);
 		
 		// assert
-		assertEquals("bill", "Please pay 10.99 Euro.", response1.getBill());
+		assertEquals("bill", "Please pay 9.99 Euro.", response1.getBill());
 		assertEquals("statusInfo", "Horoscope for order " + response1.getOrderNumber()  + " is not yet available. Please pay your bill.", response1.getStatusInfo());
 		assertEquals("type", "", response2.getHoroscopeText());
 		assertEquals("statusInfo", "Order "  + response1.getOrderNumber() + " is not yet paid.", response2.getStatusInfo());
@@ -82,7 +82,7 @@ public class HOOSystemTest
 		final HOOHoroscopeResponse response2 = fetchHoroscope(request3);
 		
 		// assert
-		assertEquals("bill", "Please pay 10.99 Euro.", response1.getBill());
+		assertEquals("bill", "Please pay 9.99 Euro.", response1.getBill());
 		assertEquals("statusInfo", "Horoscope for order " + response1.getOrderNumber()  + " is not yet available. Please pay your bill.", response1.getStatusInfo());
 		assertEquals("type", "Divide and rule!", response2.getHoroscopeText());
 		assertEquals("statusInfo", "Order "  + response1.getOrderNumber() + " is paid.", response2.getStatusInfo());
