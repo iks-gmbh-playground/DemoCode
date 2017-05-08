@@ -13,5 +13,7 @@ Current content:
 
 **3. LunchService** (Challanges: JGiven, Testing, BDD-Tooling)
 
+**4. HelloEquinoxBuddy** (Challange: Eclipse RCP/Equinox Buddy Class Loading)
+
 
 For more information see the [Wiki](https://github.com/iks-github/DemoCode/wiki).

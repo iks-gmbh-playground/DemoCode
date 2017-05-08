@@ -4,4 +4,4 @@ The three maven projects of the HelloEquinoxBuddy code demonstrate the use of th
 
 
 
-For more information see the [Wiki](https://github.com/iks-github/DemoCode/wiki/EclipseBuddyClassLoading).
+For more information see the [Wiki](https://github.com/iks-github/DemoCode/wiki/HelloEquinoxBuddy).
