@@ -44,7 +44,7 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 public class HOroscopeOnlineService
 {
 	private static final Logger LOGGER = Logger.getLogger("HOOServiceImpl");
-    private static final String HOST_PORT = "localhost:18080";
+    private static final String HOST_PORT = "localhost:8080";
     private static final String XML = MediaType.APPLICATION_XML;
 	private static final SimpleDateFormat DEFAULT_DATE_FORMATTER = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
 	

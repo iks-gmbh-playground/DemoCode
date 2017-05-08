@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+Diese Datei wurde mit der JavaTM Architecture for XML Binding(JAXB) Reference Implementation, v2.2.11 generiert 
+Siehe <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+Änderungen an dieser Datei gehen bei einer Neukompilierung des Quellschemas verloren. 
+Generiert: 2017.05.03 um 08:51:13 AM CEST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="api.horoscope.hoo.demo.iksgmbh.com">
+    <schemaBindings map="false">
+      <package name="com.iksgmbh.demo.hoo.horoscope.api"/>
+    </schemaBindings>
+    <bindings scd="tns:CreateHoroscopeRequest">
+      <class ref="com.iksgmbh.demo.hoo.horoscope.api.CreateHoroscopeRequest"/>
+    </bindings>
+    <bindings scd="tns:HOO_HoroscopeRequest">
+      <class ref="com.iksgmbh.demo.hoo.horoscope.api.HOOHoroscopeRequest"/>
+    </bindings>
+    <bindings scd="tns:HOO_HoroscopeResponse">
+      <class ref="com.iksgmbh.demo.hoo.horoscope.api.HOOHoroscopeResponse"/>
+    </bindings>
+    <bindings scd="tns:Horoscope">
+      <class ref="com.iksgmbh.demo.hoo.horoscope.api.Horoscope"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="api.order.hoo.demo.iksgmbh.com">
+    <schemaBindings map="false">
+      <package name="com.iksgmbh.demo.hoo.order.api"/>
+    </schemaBindings>
+    <bindings scd="tns:Order">
+      <class ref="com.iksgmbh.demo.hoo.order.api.Order"/>
+    </bindings>
+    <bindings scd="tns:HOO_OrderRequest">
+      <class ref="com.iksgmbh.demo.hoo.order.api.HOOOrderRequest"/>
+    </bindings>
+    <bindings scd="tns:HOO_OrderResponse">
+      <class ref="com.iksgmbh.demo.hoo.order.api.HOOOrderResponse"/>
+    </bindings>
+    <bindings scd="tns:HOO_PaymentRequest">
+      <class ref="com.iksgmbh.demo.hoo.order.api.HOOPaymentRequest"/>
+    </bindings>
+    <bindings scd="tns:OrderList">
+      <class ref="com.iksgmbh.demo.hoo.order.api.OrderList"/>
+    </bindings>
+    <bindings scd="~tns:HoroscopeType">
+      <typesafeEnumClass ref="com.iksgmbh.demo.hoo.order.api.HoroscopeType"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="api.invoice.hoo.demo.iksgmbh.com">
+    <schemaBindings map="false">
+      <package name="com.iksgmbh.demo.hoo.invoice.api"/>
+    </schemaBindings>
+    <bindings scd="tns:CreateInvoiceRequest">
+      <class ref="com.iksgmbh.demo.hoo.invoice.api.CreateInvoiceRequest"/>
+    </bindings>
+    <bindings scd="tns:Invoice">
+      <class ref="com.iksgmbh.demo.hoo.invoice.api.Invoice"/>
+    </bindings>
+  </bindings>
+</bindings>
+

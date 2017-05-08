@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HOO OSGI Systemtest
+Bundle-SymbolicName: hoo-osgi-c-systemtest
+Bundle-Version: 1.0.0
+Bundle-Vendor: IKS GmbH
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ClassPath: .,
+ testlibs/joda-time-2.9.4.jar
+Require-Bundle: org.junit;bundle-version="4.12.0",
+ hoo-osgi-c-order;bundle-version="1.0.0",
+ hoo-osgi-c-horoscope;bundle-version="1.0.0",
+ hoo-osgi-c-invoice;bundle-version="1.0.0"
+Import-Package: org.osgi.framework;version="1.8.0"

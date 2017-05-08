@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HelloBundle
+Bundle-SymbolicName: HelloBundle
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.iksgmbh.demo.rcp.buddyclassloading.hello
+Require-Bundle: BuddyBundle;bundle-version="1.0.0"
+Comment: With the following line I instruct the plugin container to add my classpath to the one(s) of the bundle(s) below
+Eclipse-RegisterBuddy: BuddyBundle

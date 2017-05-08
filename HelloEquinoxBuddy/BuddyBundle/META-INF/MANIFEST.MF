@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BuddyBundle
+Bundle-SymbolicName: BuddyBundle
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.iksgmbh.demo.rcp.buddyclassloading
+Comment: With the following line I instruct the plugin container to extend my classpath by the one(s) of my buddy plugin(s)
+Eclipse-BuddyPolicy: registered

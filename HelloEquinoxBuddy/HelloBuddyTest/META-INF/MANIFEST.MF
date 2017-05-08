@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HelloBuddyTest
+Bundle-SymbolicName: HelloBuddyTest
+Bundle-Version: 1.0.0
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: BuddyBundle;bundle-version="1.0.0",
+ HelloBundle;bundle-version="1.0.0",
+ org.junit;bundle-version="4.12.0"

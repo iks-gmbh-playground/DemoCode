@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: HOO OSGI Invoice
+Bundle-SymbolicName: hoo-osgi-c-invoice
+Bundle-Version: 1.0.0
+Bundle-Vendor: IKS GmbH
+Bundle-ClassPath: .,
+ lib/sql-pojo-memo-db-0.0.5.jar
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.iksgmbh.demo.hoo.invoice.api
+Import-Package: org.osgi.framework;version="1.8.0"
+Bundle-Activator: com.iksgmbh.demo.hoo.osgi.HooInvoiceActivator
+Bundle-ActivationPolicy: lazy
+Require-Bundle: hoo-osgi-c-order;bundle-version="1.0.0",
+ hoo-osgi-c-horoscope;bundle-version="1.0.0"

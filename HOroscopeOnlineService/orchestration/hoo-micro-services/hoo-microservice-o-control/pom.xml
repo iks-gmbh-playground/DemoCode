@@ -8,7 +8,6 @@
 	<description>This project builds the micro service for the Control subdomain within the HOO domain.</description>
 	<packaging>war</packaging>      
 
-	
     <dependencies>
 
 		<dependency>

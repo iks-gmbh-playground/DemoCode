@@ -26,6 +26,8 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 public class HOOSystemTest 
 {
+	private static final String HOST_PORT = "localhost:8080";
+	
 	private Client jerseyClient = Client.create( new DefaultClientConfig() );
 		
     @Test
@@ -123,7 +125,7 @@ public class HOOSystemTest
 		fetchHoroscope(request7);
 		
 		// act 
-    	final String result = jerseyClient.resource("http://localhost:18080/HOOServiceControl/allOrders")
+    	final String result = jerseyClient.resource("http://" + HOST_PORT + "/HOOServiceControl/allOrders")
                                           .accept(MediaType.TEXT_PLAIN).get(String.class);
 		
 		// assert
@@ -145,7 +147,7 @@ public class HOOSystemTest
 		paymentRequest.setOrderNumber(orderNumber);
 		paymentRequest.setPaid(paid);
 		
-		jerseyClient.resource("http://localhost:18080/HOOServiceControl/payment")
+		jerseyClient.resource("http://" + HOST_PORT + "/HOOServiceControl/payment")
                 .type(MediaType.APPLICATION_XML)
                 .put(paymentRequest);
 	}
@@ -175,7 +177,7 @@ public class HOOSystemTest
 
 	private HOOHoroscopeResponse fetchHoroscope(HOOHoroscopeRequest request) 
 	{
-    	return jerseyClient.resource("http://localhost:18080/HOOServiceControl/horoscope")
+    	return jerseyClient.resource("http://" + HOST_PORT + "/HOOServiceControl/horoscope")
                                       .type(MediaType.APPLICATION_XML)
                                       .accept(MediaType.APPLICATION_XML).put(HOOHoroscopeResponse.class, 
                                     		                                 request);
@@ -184,7 +186,7 @@ public class HOOSystemTest
 
 	private HOOOrderResponse send(HOOOrderRequest request) 
 	{
-    	return jerseyClient.resource("http://localhost:18080/HOOServiceControl/newOrder")
+    	return jerseyClient.resource("http://" + HOST_PORT + "/HOOServiceControl/newOrder")
                                       .type(MediaType.APPLICATION_XML)
                                       .accept(MediaType.APPLICATION_XML).post(HOOOrderResponse.class, 
                                     		                                  request);

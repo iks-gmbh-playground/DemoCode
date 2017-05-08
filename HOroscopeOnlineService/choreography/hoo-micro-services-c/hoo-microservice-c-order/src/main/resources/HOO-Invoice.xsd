@@ -1,0 +1,57 @@
+<!--
+===================================================================
+This file contains the definitions of all the data types,
+that are transferred by service methods of the HOOServiceInvoice.
+===================================================================
+-->
+
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:tns="api.invoice.hoo.demo.iksgmbh.com"
+    xmlns:ons="api.order.hoo.demo.iksgmbh.com"
+    xmlns:hns="api.horoscope.hoo.demo.iksgmbh.com"
+    targetNamespace="api.invoice.hoo.demo.iksgmbh.com"
+    elementFormDefault="qualified" attributeFormDefault="qualified"
+    version="1.0">
+
+	<xs:import schemaLocation="HOO-Order.xsd" 
+               namespace="api.order.hoo.demo.iksgmbh.com"/>
+
+	<xs:import schemaLocation="HOO-Horoscope.xsd" 
+               namespace="api.horoscope.hoo.demo.iksgmbh.com"/>
+
+    <xs:element name="CreateInvoiceRequest">
+        <xs:annotation>
+            <xs:documentation>Contains initial values to create a Invoice.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="ons:Order" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>mandatory field</xs:documentation></xs:annotation>
+                </xs:element>
+                <xs:element ref="hns:Horoscope" minOccurs="1" maxOccurs="1">
+                    <xs:annotation><xs:documentation>mandatory field</xs:documentation></xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="Invoice">
+        <xs:annotation>
+            <xs:documentation>Entity created, saved and loaded by this service.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="orderNumber" type="xs:long" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="customerName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="horoscopeType" type="ons:HoroscopeType" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="price" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="invoiceFactor" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="prePaid" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+                <xs:element name="bill" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
