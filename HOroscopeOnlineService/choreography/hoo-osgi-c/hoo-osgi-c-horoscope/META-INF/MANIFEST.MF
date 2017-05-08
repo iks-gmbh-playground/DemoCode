@@ -8,9 +8,9 @@ Bundle-ClassPath: .,
  lib/sql-pojo-memo-db-0.0.5.jar
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: com.iksgmbh.demo.hoo.horoscope.api,
- com.iksgmbh.demo.hoo.requestresponse
-Require-Bundle: hoo-osgi-c-invoice;bundle-version="1.0.0",
- hoo-osgi-c-order;bundle-version="1.0.0"
-Import-Package: org.osgi.framework;version="1.8.0"
+ com.iksgmbh.demo.hoo.horoscope.api.requestresponse
+Import-Package: com.iksgmbh.demo.hoo.invoice.api,
+ com.iksgmbh.demo.hoo.order.api,
+ org.osgi.framework;version="1.8.0"
 Bundle-Activator: com.iksgmbh.demo.hoo.osgi.HooHoroscopeActivator
 Bundle-ActivationPolicy: lazy

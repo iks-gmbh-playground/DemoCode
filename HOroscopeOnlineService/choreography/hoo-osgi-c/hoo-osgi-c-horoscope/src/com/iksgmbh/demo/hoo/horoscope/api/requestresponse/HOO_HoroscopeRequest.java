@@ -1,4 +1,4 @@
-package com.iksgmbh.demo.hoo.requestresponse;
+package com.iksgmbh.demo.hoo.horoscope.api.requestresponse;
 
 public class HOO_HoroscopeRequest  
 {

@@ -1,4 +1,4 @@
-package com.iksgmbh.demo.hoo.requestresponse;
+package com.iksgmbh.demo.hoo.order.api.requestresponse;
 
 import com.iksgmbh.demo.hoo.requestresponse.HOO_PaymentRequest;
 
