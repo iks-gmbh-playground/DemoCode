@@ -15,5 +15,7 @@ Current content:
 
 **4. HelloEquinoxBuddy** (Challange: Eclipse RCP/Equinox Buddy Class Loading)
 
+**5. JavaServiceRegistry** (Challange: Registering and consuming JVM services)
+
 
 For more information see the [Wiki](https://github.com/iks-github/DemoCode/wiki).
