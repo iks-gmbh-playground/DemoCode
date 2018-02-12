@@ -1,2 +1,0 @@
-This code was actual when Java9 was only available as prerelease and when the IDEs did not yet supported it.
-It still works, but its use is optimized for console use. It will likely not work in an IDE.

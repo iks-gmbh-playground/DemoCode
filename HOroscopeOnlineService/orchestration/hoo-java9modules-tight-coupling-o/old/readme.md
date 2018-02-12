@@ -1,3 +1,9 @@
+
+This code was actual when Java9 was only available as prerelease and when the IDEs did not yet supported it.
+ It still works, but its use is optimized to be imported as 'Simple Project' in Eclipse.
+
+-------------------------------------------------------------------------------------------------
+
 This is a approach with Java 9 modules to modularize the HOO service in the orchestration design. The modules are tightly coupled in this implementation.
 
 Note: to compile and run the code you need a JDK 9 Early Access Release. See https://jdk9.java.net/download.
