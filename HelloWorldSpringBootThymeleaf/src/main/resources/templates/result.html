@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"> </head>
+<body>
+	<div th:replace="fragments/headerWithNavBar :: headerWithNavBar"> </div>
+	<h2>Result Page</h2>
+	
+	<p th:text="${greeting} + ' ' + ${name} + '!'"/>
+	
+	<div th:replace="fragments/footer :: footer"> </div>
+</body>
+</html>

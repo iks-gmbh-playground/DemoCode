@@ -1,0 +1,11 @@
+nav {
+    background: #43cea2;
+    background: -webkit-linear-gradient(to left, #185a9d, #43cea2); 
+    background: linear-gradient(to left, #185a9d, #43cea2);
+}
+
+a {
+    color: #ffff11;
+    text-decoration: none;
+    margin-right: 25px
+}

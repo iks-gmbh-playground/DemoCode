@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/head :: head"> </head>
+
+    <body>
+	    <div th:replace="fragments/headerSimple :: headerSimple"> </div>
+	    <h2>Login Page</h2>
+	    
+	    <form action="#" th:action="@{/hello/world/performLogin}" th:object="${userLoginData}" method="post">
+		    <table>
+				<tr>
+					<td>
+		                <label for="username">Username</label>:
+		            </td>
+		            <td>
+		      			<input type="text" id="username" name="username" autofocus="autofocus" />
+		      			<td th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username error message</td>
+		      		</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="password">Password</label>:
+					</td>
+					<td>
+		                 <input type="password" id="password" name="password" />
+		                 <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error message</td>
+		            </td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						<input id="login_button" type="submit" value="Log in" />
+					</td>
+				</tr>
+				
+			</table>
+	    </form>
+    </body>
+</html>

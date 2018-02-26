@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/head :: head"> </head>
+	
+	<body>
+		<div th:replace="fragments/headerWithNavBar :: headerWithNavBar"> </div>
+		<h2>Form Page</h2>
+		
+		<form action="#" th:action="@{/hello/world/result}" th:object="${greetingData}" method="post">
+			<table>
+				<tr>
+					<td>Greeting:</td>
+					<td>
+					 <select id="greetingSelect" th:field="*{greeting}">
+					  <option th:value="Hello" th:text="Hello"/>
+					  <option th:value="Hey" th:text="Hey"/>
+					  <option th:value="Hi" th:text="Hi"/>
+					  <option th:value="Good + ' ' + Day" th:text="Good + ' ' + Day"/>
+					</select>
+					</td>				
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td> <input id="nameInput" type="text" th:field="*{name}" /></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td><button id="btnGreet" type="submit">Greet</button></td>
+				</tr>
+			</table>
+		</form>
+		
+		<div th:replace="fragments/footer :: footer"> </div>
+	</body>
+</html>

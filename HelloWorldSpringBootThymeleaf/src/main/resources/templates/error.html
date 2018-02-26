@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/error.css}"/> 
+	</head>
+	
+    <body>
+        <div th:replace="fragments/headerSimple :: headerSimple"> </div>
+	  	<h2>Error Page</h2>
+	  
+		<form action="#" th:action="@{/hello/world/login}">
+			<table>
+		    	<tr>
+		        	<td><p>Error Message:</p></td>
+	        			<td th:text="${error}"/>
+		    	</tr>
+			</table>
+			<br/>
+			<td><button id="btnBack" type="submit">Back</button></td>
+		</form>
+	</body>
+</html>

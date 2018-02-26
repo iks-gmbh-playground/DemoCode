@@ -1,0 +1,13 @@
+body {
+    background: #ggg;
+    color: #000;
+}
+
+td {
+  color: red;
+  font-weight: bold;
+}
+
+p {
+ font-weight: normal;
+}
