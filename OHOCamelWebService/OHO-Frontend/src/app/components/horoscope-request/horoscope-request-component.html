@@ -1,0 +1,80 @@
+<div *ngIf="horoscope==null">
+
+    <h2>Enter HoroscopeRequestData:</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <!-- The table section below is generated: Do not modify manually! -->
+            <table class="form-group">
+                <tr>
+                    <td>
+                        <label for="name">Name</label>
+                        <br>
+                        <input id="name" type="text" class="form-Control" formControlName="nameControl"/>
+                    </td>
+                    <td class="space"></td>
+                    <td>
+                        <label for="gender">Gender</label>
+                        <br>
+                        <select id="gender" class="form-Control" formControlName="genderControl">
+                            <option [value]="'m'">m</option>
+                            <option [value]="'w'">w</option>
+                            <option [value]="'d'">d</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>&nbsp;</tr>
+
+                <tr>
+                    <td>
+                        <label for="birthday">Birthday</label>
+                        <br>
+                        <input id="birthday" type="text" class="form-Control" formControlName="birthdayControl"/>
+                    </td>
+                </tr>
+            </table>
+        <!-- The table section above is generated: Do not modify manually! -->
+
+        <div class="form-group alert alert-danger" *ngIf="form.invalid">
+            Validation errors:
+
+            <!-- The error sections below are generated: Do not modify manually! -->
+                <div *ngIf="nameC.errors?.required && nameC.touched">
+                The field <i>Name</i> is required.
+                </div>
+                <div *ngIf="genderC.errors?.required && genderC.touched">
+                The field <i>Gender</i> is required.
+                </div>
+                <div *ngIf="birthdayC.errors?.required && birthdayC.touched">
+                The field <i>Birthday</i> is required.
+                </div>
+            <!-- The error sections above are generated: Do not modify manually! -->
+
+        </div>
+
+        <br>
+
+        <button [disabled]="form.invalid"
+                class="button btn btn-primary"
+                type="submit"
+        >Create horoscope</button>
+
+    </form>
+
+</div>
+
+
+<div *ngIf="horoscope!=null">
+
+    <div [innerHTML]="horoscope"></div>
+
+    <br>
+
+    <button [disabled]="form.invalid"
+        class="button btn btn-primary"
+        (click)="reset()"
+    >Back</button>
+
+</div>
+

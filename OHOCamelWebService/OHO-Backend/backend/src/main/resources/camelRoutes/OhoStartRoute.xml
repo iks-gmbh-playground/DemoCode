@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes id="OhoRoutes" xmlns="http://camel.apache.org/schema/spring">
+    <route id="OhoMainRoute">
+        <from uri="direct:start"/>
+        <script>
+        	<groovy>execute:OhoMainScript.groovy</groovy>
+        </script>
+        <to uri="direct:start"/>
+    </route>
+</routes>

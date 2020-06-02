@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes id="InitRoutes" xmlns="http://camel.apache.org/schema/spring">
+    <route id="BasicInitRoute">
+        <from uri="direct:start"/>
+        <log message="Start Camel processing..." loggingLevel="Info" loggerRef="CamelLogger" />
+        
+        todo: add OhoRoute
+        
+        <to uri="direct:start"/>
+    </route>
+</routes>
