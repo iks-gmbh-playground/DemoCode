@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes id="OhoRoutes" xmlns="http://camel.apache.org/schema/spring">
+    <route id="GroovyExecutionRoutes">
+        <from uri="direct:startGroovyExecution"/>
+        <log message="Start Groovy Execution..." loggingLevel="Info" loggerRef="camelLogger" />
+
+        <script>
+        	<groovy>
+        		executeScript:OhoMainScript.groovy
+        	</groovy>
+        </script>
+        
+        <log message="Done with Groovy Execution!" loggingLevel="Info" loggerRef="camelLogger" />
+    </route>
+</routes>

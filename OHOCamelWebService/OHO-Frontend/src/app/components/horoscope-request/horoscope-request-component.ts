@@ -2,6 +2,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { HoroscopeRequestDataService } from 'src/app/services/horoscope-request-service';
 import { HoroscopeRequestData } from 'src/app/common/domainobjects/gen/HoroscopeRequestData';
+import { HttpErrorResponse } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'horoscope-request',
@@ -24,8 +26,13 @@ export class HoroscopeRequestDataComponent implements OnInit {
     const horoscopeRequestData = this.getHoroscopeRequestData();
     this.horoscopeRequestDataService.sendToServer(horoscopeRequestData)
                                     .subscribe((response) => {
-                                      console.log(response)
-                                      this.horoscope = response as string; });
+                                        const html = response as string; 
+                                        if (html.length === 0) {
+                                          throw new HttpErrorResponse({status: 500, url: environment.serverUrl});
+                                        } else {
+                                          this.horoscope = html;
+                                        }
+                                    });
   }
 
   reset() {

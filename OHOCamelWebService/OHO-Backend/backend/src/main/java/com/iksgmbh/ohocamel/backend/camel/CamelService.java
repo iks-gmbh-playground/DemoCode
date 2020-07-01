@@ -1,5 +1,7 @@
 package com.iksgmbh.ohocamel.backend.camel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,30 +12,20 @@ import com.iksgmbh.ohocamel.backend.camel.processor.CamelOhoProcessor;
 @Service
 public class CamelService 
 {
+	private static final Logger CAMEL_LOGGER = LoggerFactory.getLogger(CamelService.class);
+
 	@Autowired
 	private CamelContextHandler camelContextHandler;
 	
 	public String getHtmlHoroscope(HoroscopeRequestData requestData) 
 	{
-		CamelOhoProcessor processor = new CamelOhoProcessor(camelContextHandler.getCamelContext());
-		return processor.process(requestData);
-	}
-
-	public String getDemo(HoroscopeRequestData requestData) {
-		StringBuffer sb = new StringBuffer();
-		
-		sb.append("<h1>Hello <i>" + requestData.getName() + "</i></h1>");
-		
-		if (requestData.getGender().equals("m")) {
-			sb.append("<p>You are a <b>good</b> boy.</p>");
-		} else if (requestData.getGender().equals("w")) {
-			sb.append("<p>You are a <b>good</b> girl.</p>");
-			
-		} else {
-			sb.append("<p>You are a <b>good</b> person.</p>");
+		try {
+			CamelOhoProcessor processor = new CamelOhoProcessor(camelContextHandler.getCamelContext());
+			return processor.process(requestData);
+		} catch (Throwable e) {
+			CAMEL_LOGGER.error(e.getMessage());
+			return "";
 		}
-
-		return sb.toString();
 	}
 	
 }

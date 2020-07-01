@@ -10,9 +10,8 @@ import javax.annotation.PostConstruct;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Route;
 import org.apache.camel.RuntimeCamelException;
-import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.model.RoutesDefinition;
-import org.apache.camel.spring.boot.CamelConfigurationProperties;
+import org.apache.camel.spring.SpringCamelContext;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -33,13 +32,13 @@ public class CamelContextHandler
 	@Autowired
 	private Logger camelLogger;
 	
-	@Autowired
-	private CamelConfigurationProperties camelConfigurationProperties;
+//	@Autowired
+//	private CamelConfigurationProperties camelConfigurationProperties;
 	
 	@PostConstruct
 	public void postConstruct() 
 	{
-		camelContext = new DefaultCamelContext();
+		camelContext = new SpringCamelContext(applicationContext);
 		camelContext.setGlobalOptions(globalOptions);
 
 		// define context config here if needed

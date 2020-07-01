@@ -46,7 +46,7 @@ public class RequestRestController
 		HoroscopeRequestData requestData = new HoroscopeRequestData();
 		requestData.setName("World");
 		requestData.setGender("d");
-		requestData.setBirthday("01.01.0000");
+		requestData.setBirthday("01.01.2020");
 		return camelService.getHtmlHoroscope(requestData);
 
 	}

@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<routes id="InitRoutes" xmlns="http://camel.apache.org/schema/spring">
-    <route id="BasicInitRoute">
+<!-- This file contains one or more routes that are basic to the OHO Camel Servive -->
+
+<routes id="BasicRoutes" xmlns="http://camel.apache.org/schema/spring">
+    
+    <route id="OhoInitRoute">
         <from uri="direct:start"/>
-        <log message="Start Camel processing..." loggingLevel="Info" loggerRef="CamelLogger" />
+        <log message="Start OHO Processing..." loggingLevel="Info" loggerRef="camelLogger" />
+
+		<script>		
+			<groovy>
+				exchange.setProperty("GroovyScriptRoute", "OhoMainRoute.xml");
+			</groovy>        
+		</script>
+		
+        <process ref="GroovyScriptRouteProcessor"></process>
         
-        todo: add OhoRoute
-        
-        <to uri="direct:start"/>
+        <to uri="direct:startGroovyExecution"/>
+        <log message="Done with OHO Processing!" loggingLevel="Info" loggerRef="camelLogger" />
     </route>
+    
 </routes>

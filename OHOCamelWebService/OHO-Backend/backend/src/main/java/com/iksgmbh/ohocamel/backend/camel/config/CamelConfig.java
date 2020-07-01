@@ -17,6 +17,7 @@ package com.iksgmbh.ohocamel.backend.camel.config;
 
 
 import org.apache.camel.CamelContext;
+import org.apache.camel.spring.boot.CamelContextConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,17 +25,35 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.iksgmbh.ohocamel.backend.camel.CamelService;
+import com.iksgmbh.ohocamel.backend.camel.processor.GroovyScriptRouteProcessor;
 
 @Configuration
-public class CamelConfig {
-
+//@EnableConfigurationProperties(CamelConfigurationProperties.class)
+public class CamelConfig implements CamelContextConfiguration 
+{
 	private static final Logger CAMEL_LOGGER = LoggerFactory.getLogger(CamelService.class);
 	
 	@Autowired
 	private CamelContext camelContext;
-	
+
 	@Bean
-	public Logger getCamelLogger() { return CAMEL_LOGGER; }
+	public org.slf4j.Logger camelLogger() { return CAMEL_LOGGER; }
+	
+	@Bean(name="GroovyScriptRouteProcessor")
+	public GroovyScriptRouteProcessor groovyInjectScriptProcessor() {return new GroovyScriptRouteProcessor(); }
+	
+	@Override
+	public void beforeApplicationStart(CamelContext camelContext) {
+		// do nothing
+	}
 
-
+	@Override
+	public void afterApplicationStart(CamelContext camelContext) {
+		// do nothing
+	}
+	
+	public CamelContext getCamelContext() {
+		return camelContext;
+	}
+	
 }

@@ -3,17 +3,29 @@ package com.iksgmbh.ohocamel.backend.camel.processor;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.ExchangeBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.iksgmbh.oho.backend.HoroscopeRequestData;
-import com.iksgmbh.ohocamel.backend.camel.config.CamelContextHandler;
+import com.iksgmbh.ohocamel.backend.camel.CamelService;
 
+/**
+ * Main Processor for the OHO Service.
+ * It called directly by the RestController.
+ * Other processors are embedded in one of the Camel routes and need to represent Spring Components!
+ * 
+ * @author Reik Oberrath
+ */
 public class CamelOhoProcessor 
 {
+	private static final Logger CAMEL_LOGGER = LoggerFactory.getLogger(CamelService.class);
+
 	public static final String OHO_MAIN_SCRIPT = "HoroscopeMainTemplate.groovy";
 	public static final String OHO_START_ROUTE = "OhoStartRoute.xml";
 	public static final String OHO_ROUTE_START_FROM = "direct:start";
 	public static final String OHO_REQUEST_DATA = "HoroscopeRequestData";
 	public static final String OHO_RESPONSE_DATA = "HoroscopeResponseData";
+
 
 	private CamelContext context;
 
@@ -23,31 +35,25 @@ public class CamelOhoProcessor
 
 	public String process(HoroscopeRequestData requestData) 
 	{
-		// prepare
-		Exchange transferData = ExchangeBuilder.anExchange(context).build();
-		transferData.setProperty(OHO_REQUEST_DATA, requestData);
+		// prepare: create dataTransferObject for camel processing
+		Exchange exchange = ExchangeBuilder.anExchange(context).build();
+		exchange.setProperty(OHO_REQUEST_DATA, requestData);
 		
-		// main
-		transferData = context.createProducerTemplate().send(OHO_ROUTE_START_FROM, transferData);
+		// main: start cascading camel processing
+		exchange = context.createProducerTemplate().send(OHO_ROUTE_START_FROM, exchange);
 		
-		//finish
-		return transferData.getProperty(OHO_RESPONSE_DATA, String.class);
-//		
-//		StringBuffer sb = new StringBuffer();
-//		
-//		sb.append("<h1>Hello <i>" + requestData.getName() + "</i></h1>");
-//		
-//		if (requestData.getGender().equals("m")) {
-//			sb.append("<p>You are a <b>good</b> boy.</p>");
-//		} else if (requestData.getGender().equals("w")) {
-//			sb.append("<p>You are a <b>good</b> girl.</p>");
-//			
-//		} else {
-//			sb.append("<p>You are a <b>good</b> person.</p>");
-//		}
-//
-//		return sb.toString();
-		
+		//finish: read result from dto
+		checkForExceptions(exchange.getException());
+		return exchange.getProperty(OHO_RESPONSE_DATA, String.class);
+	}
+
+	private void checkForExceptions(Exception exception) 
+	{
+		if (exception == null) return;
+		CAMEL_LOGGER.error(exception.getMessage());
+		if (exception.getCause() != null) {
+			CAMEL_LOGGER.error(exception.getCause().getMessage());
+		}
 	}
 
 }
