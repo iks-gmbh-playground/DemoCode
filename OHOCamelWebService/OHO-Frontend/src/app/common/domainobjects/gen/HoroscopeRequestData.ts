@@ -4,12 +4,14 @@ export class HoroscopeRequestData
     name: string;
     gender: string;
     birthday: string;
+    favouriteColor: string;
 
     constructor(untypedHoroscopeRequestData: any) {
         if (untypedHoroscopeRequestData != null) {
             this.name = untypedHoroscopeRequestData.name;
             this.gender = untypedHoroscopeRequestData.gender;
             this.birthday = untypedHoroscopeRequestData.birthday;
+            this.favouriteColor = untypedHoroscopeRequestData.favouriteColor;
         }
     }
 
@@ -19,6 +21,7 @@ export class HoroscopeRequestData
            'name',
            'gender',
            'birthday',
+           'favouriteColor',
         ];
     }
 
@@ -34,6 +37,13 @@ export class HoroscopeRequestData
         return this.birthday;
     }
 
+    getFavouriteColor() {
+        return this.favouriteColor;
+    }
+
+    setFavouriteColor(favouriteColor: string) {
+        this.favouriteColor = favouriteColor;
+    }
 
     setName(name: string) {
         this.name = name;

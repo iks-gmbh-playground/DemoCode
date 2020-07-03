@@ -14,7 +14,7 @@ public class ResourceReader
 	{
 		InputStream resourceAsStream = ResourceReader.class.getClassLoader().getResourceAsStream(relativeFilePath);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(resourceAsStream));
-		String content = reader.lines().collect(Collectors.joining("\n"));
+		String content = reader.lines().collect(Collectors.joining(System.getProperty("line.separator")));
 		try {
 			reader.close();
 		} catch (IOException e) {

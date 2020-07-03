@@ -1,6 +1,12 @@
 <div *ngIf="horoscope==null">
 
-    <h2>Enter HoroscopeRequestData:</h2>
+    <h1>OHO</h1>
+
+    <p>
+        Hi, I'm Scarlet. I offer you a look onto tomorrow. 
+        Just fill the emtpy fields below and ask for your personnel <b>O</b>nline <b>HO</b>roscope.
+        It's free. Be brave and come to know your near future right now...
+    </p>
 
     <form [formGroup]="form" (ngSubmit)="submit()">
 
@@ -17,9 +23,9 @@
                         <label for="gender">Gender</label>
                         <br>
                         <select id="gender" class="form-Control" formControlName="genderControl">
-                            <option [value]="'m'">m</option>
-                            <option [value]="'w'">w</option>
-                            <option [value]="'d'">d</option>
+                            <option [value]="'m'">male</option>
+                            <option [value]="'f'">female</option>
+                            <option [value]="'d'">diverse</option>
                         </select>
                     </td>
                 </tr>
@@ -32,12 +38,17 @@
                         <br>
                         <input id="birthday" type="text" class="form-Control" formControlName="birthdayControl"/>
                     </td>
+                    <td class="space"></td>
+                    <td>
+                        <label for="favouriteColor">Favourite Color</label>
+                        <br>
+                        <input id="favouriteColor" type="color" formControlName="colorpickerControl"/>
+                    </td>
                 </tr>
             </table>
         <!-- The table section above is generated: Do not modify manually! -->
 
         <div class="form-group alert alert-danger" *ngIf="form.invalid">
-            Validation errors:
 
             <!-- The error sections below are generated: Do not modify manually! -->
                 <div *ngIf="nameC.errors?.required && nameC.touched">
@@ -58,7 +69,7 @@
         <button [disabled]="form.invalid"
                 class="button btn btn-primary"
                 type="submit"
-        >Create horoscope</button>
+        >Please send me my OHO...</button>
 
     </form>
 

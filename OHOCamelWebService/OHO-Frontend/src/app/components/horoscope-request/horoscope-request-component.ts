@@ -15,12 +15,15 @@ export class HoroscopeRequestDataComponent implements OnInit {
   form: FormGroup;
   horoscope: string;
   text = true;
+  favouriteColor = '#cccccc';
 
   constructor(private horoscopeRequestDataService: HoroscopeRequestDataService) {
       this.form = this.createFormControl();
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.colorpickerC.setValue(this.favouriteColor);
+  }
 
   submit() {
     const horoscopeRequestData = this.getHoroscopeRequestData();
@@ -51,6 +54,9 @@ export class HoroscopeRequestDataComponent implements OnInit {
         birthdayControl: new FormControl('', [
                 Validators.required,
               ]),
+        colorpickerControl: new FormControl('', [
+                Validators.required,
+              ]),
     });
   }
 
@@ -66,12 +72,17 @@ export class HoroscopeRequestDataComponent implements OnInit {
     return this.form.get('birthdayControl');
   }
 
+  get colorpickerC() {
+    return this.form.get('colorpickerControl');
+  }
+
   private getHoroscopeRequestData() {
     const horoscopeRequestData = new HoroscopeRequestData(null);
 
     horoscopeRequestData.setName(this.nameC.value);
     horoscopeRequestData.setGender(this.genderC.value);
     horoscopeRequestData.setBirthday(this.birthdayC.value);
+    horoscopeRequestData.setFavouriteColor(this.colorpickerC.value);
 
     return horoscopeRequestData;
   }

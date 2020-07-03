@@ -31,6 +31,9 @@ public class HoroscopeRequestData implements Serializable, Cloneable
     @ApiModelProperty(notes = "Mandatory.")
 	private String birthday;
 
+    @NotNull(message="Value of mandatory attribute 'birthday' is not present.")
+    @ApiModelProperty(notes = "Mandatory.")
+	private String favouriteColor;
 
 	// ===============  setter methods  ===============
 
@@ -47,6 +50,11 @@ public class HoroscopeRequestData implements Serializable, Cloneable
 	public void setBirthday(final String birthday)
 	{
 		this.birthday = birthday;
+	}
+
+	public void setFavouriteColor(final String favouriteColor)
+	{
+		this.favouriteColor = favouriteColor;
 	}
 
 	// ===============  getter methods  ===============
@@ -66,6 +74,11 @@ public class HoroscopeRequestData implements Serializable, Cloneable
 		return birthday;
 	}
 
+	public String getFavouriteColor()
+	{
+		return this.favouriteColor;
+	}
+	
 	// ===============  additional Javabean methods  ===============
 
 	@Override

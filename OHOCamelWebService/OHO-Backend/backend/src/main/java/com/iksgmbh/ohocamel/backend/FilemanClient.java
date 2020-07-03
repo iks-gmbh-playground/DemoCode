@@ -14,12 +14,13 @@ public class FilemanClient
 	{
 		if (false) {
 			if (filename.equals("OhoMainScript.groovy"))
-				return "\r\nStringBuffer html = new StringBuffer();\r\n"
-						+ "horoscopeRequestData = exchange.getProperty(\"HoroscopeRequestData\");\r\n" + 
-		              "String name = horoscopeRequestData.getName();\r\n" + 
-		              "html.append(\"Hello &lt;i&gt;\" + name + \".&lt;/i&gt;\");\r\n" +
-		              "executeScript:OhoSubScript.groovy\r\n" +
-		              "exchange.setProperty(\"HoroscopeResponseData\", html.toString());";
+				return "\r\nimport com.iksgmbh.ohocamel.backend.helper.Random;\r\n" +
+					   "StringBuffer html = new StringBuffer(Random.oneOf(1,2,3) + \" \");\r\n" +
+					   "horoscopeRequestData = exchange.getProperty(\"HoroscopeRequestData\");\r\n" + 
+		               "String name = horoscopeRequestData.getName();\r\n" + 
+		               "html.append(\"Hello &lt;i&gt;\" + name + \".&lt;/i&gt;\");\r\n" +
+		               "executeScript:OhoSubScript.groovy\r\n" +
+		               "exchange.setProperty(\"HoroscopeResponseData\", html.toString());";
 			if (filename.equals("OhoSubScript.groovy"))
 				return "\r\n" + 
 			           "html.append(\"&lt;p&gt;\" + System.getProperty(\"line.separator\") + \"sub1&lt;/p&gt;\");\r\n" +  
