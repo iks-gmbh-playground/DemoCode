@@ -3,7 +3,7 @@
     <h1>OHO</h1>
 
     <p>
-        Hi, I'm Scarlet. I offer you a look onto tomorrow. 
+        Hi, I'm Scarlet. I offer you a look onto tomorrow.
         Just fill the emtpy fields below and ask for your personnel <b>O</b>nline <b>HO</b>roscope.
         It's free. Be brave and come to know your near future right now...
     </p>
@@ -78,7 +78,7 @@
 
 <div *ngIf="horoscope!=null">
 
-    <div [innerHTML]="horoscope"></div>
+    <div [innerHTML]="horoscope | replaceHtmlSanitizerWithDompurify"></div>
 
     <br>
 

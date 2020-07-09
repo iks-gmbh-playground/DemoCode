@@ -7,10 +7,12 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { HoroscopeErrorHandler } from './common/horoscope-error-handler';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { ReplaceHtmlSanitizerWithDompurifyPipe } from './common/replace-html-sanitizer-with-dompurify.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent, HoroscopeRequestDataComponent
+    AppComponent, HoroscopeRequestDataComponent,
+    ReplaceHtmlSanitizerWithDompurifyPipe
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
