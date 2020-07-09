@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
     RouterModule.forRoot([
       {path: '', redirectTo: '/oho', pathMatch: 'full'},
-      {path: 'oho/**', component: HoroscopeRequestDataComponent}
+      {path: 'oho', component: HoroscopeRequestDataComponent}
     ])
   ],
   providers: [HoroscopeRequestDataService,
