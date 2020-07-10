@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.iksgmbh.oho.backend.HoroscopeRequestData;
 import com.iksgmbh.ohocamel.backend.camel.config.CamelContextHandler;
-import com.iksgmbh.ohocamel.backend.camel.processor.CamelOhoProcessor;
+import com.iksgmbh.ohocamel.backend.camel.processor.CamelOhoMainProcessor;
 
 @Service
 public class CamelService 
@@ -20,7 +20,7 @@ public class CamelService
 	public String getHtmlHoroscope(HoroscopeRequestData requestData) 
 	{
 		try {
-			CamelOhoProcessor processor = new CamelOhoProcessor(camelContextHandler.getCamelContext());
+			CamelOhoMainProcessor processor = new CamelOhoMainProcessor(camelContextHandler.getCamelContext());
 			return processor.process(requestData);
 		} catch (Throwable e) {
 			CAMEL_LOGGER.error(e.getMessage());

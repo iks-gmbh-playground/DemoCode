@@ -16,7 +16,7 @@ import com.iksgmbh.ohocamel.backend.camel.CamelService;
  * 
  * @author Reik Oberrath
  */
-public class CamelOhoProcessor 
+public class CamelOhoMainProcessor 
 {
 	private static final Logger CAMEL_LOGGER = LoggerFactory.getLogger(CamelService.class);
 
@@ -29,7 +29,7 @@ public class CamelOhoProcessor
 
 	private CamelContext context;
 
-	public CamelOhoProcessor(CamelContext camelContext) {
+	public CamelOhoMainProcessor(CamelContext camelContext) {
 		this.context = camelContext;
 	}
 

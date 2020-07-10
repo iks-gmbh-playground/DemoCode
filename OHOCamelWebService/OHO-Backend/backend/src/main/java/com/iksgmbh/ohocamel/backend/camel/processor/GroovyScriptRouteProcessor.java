@@ -36,11 +36,11 @@ public class GroovyScriptRouteProcessor implements Processor
 	@Override
 	public void process(Exchange exchange) throws Exception 
 	{
-		String groovyScriptRoute = getOhoMainRoute(exchange);
+		String groovyExecRoute = getOhoMainRoute(exchange);
 		
-		groovyScriptRoute = replaceGroovyScriptReferences(groovyScriptRoute);
+		groovyExecRoute = replaceGroovyScriptReferences(groovyExecRoute);
 
-		addToContext(exchange, groovyScriptRoute);	
+		addToContext(exchange, groovyExecRoute);	
 	}
 
 	private String replaceGroovyScriptReferences(String groovyScriptRoute) 

@@ -12,25 +12,6 @@ public class FilemanClient
 {
 	public String getFileContent(String filename) 
 	{
-		if (false) {
-			if (filename.equals("OhoMainScript.groovy"))
-				return "\r\nimport com.iksgmbh.ohocamel.backend.helper.Random;\r\n" +
-					   "StringBuffer html = new StringBuffer(Random.oneOf(1,2,3) + \" \");\r\n" +
-					   "horoscopeRequestData = exchange.getProperty(\"HoroscopeRequestData\");\r\n" + 
-		               "String name = horoscopeRequestData.getName();\r\n" + 
-		               "html.append(\"Hello &lt;i&gt;\" + name + \".&lt;/i&gt;\");\r\n" +
-		               "executeScript:OhoSubScript.groovy\r\n" +
-		               "exchange.setProperty(\"HoroscopeResponseData\", html.toString());";
-			if (filename.equals("OhoSubScript.groovy"))
-				return "\r\n" + 
-			           "html.append(\"&lt;p&gt;\" + System.getProperty(\"line.separator\") + \"sub1&lt;/p&gt;\");\r\n" +  
-		               "executeScript:OhoSubSubScript.groovy";
-			if (filename.equals("OhoSubSubScript.groovy"))
-				return "\r\n" + 
-		           "html.append(\"&lt;p&gt;\" + System.getProperty(\"line.separator\") + \"sub2&lt;/p&gt;\");";
-		}
-		
-		
 		StringBuffer sb = new StringBuffer();
 
 		try {
