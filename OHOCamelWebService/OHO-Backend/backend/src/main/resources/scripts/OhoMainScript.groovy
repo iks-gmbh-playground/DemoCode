@@ -34,5 +34,5 @@ if ( ! DateUtil.isDateValid(requestData.getBirthday()) ) {
 		}
 	} 
 }
-html.append("</section");
+html.append("</section>");
 exchange.setProperty("HoroscopeResponseData", html.toString());

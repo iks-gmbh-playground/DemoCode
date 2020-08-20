@@ -69,7 +69,7 @@ public class GroovyScriptRouteProcessor implements Processor
 		return groovyScriptRoute;
 	}
 
-	private String getContent(String groovyScriptName) 
+	protected String getContent(String groovyScriptName) 
 	{
 		String groovyScriptContent = fileman.getFileContent(groovyScriptName);
 	

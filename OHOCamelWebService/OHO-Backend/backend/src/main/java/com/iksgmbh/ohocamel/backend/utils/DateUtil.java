@@ -31,6 +31,8 @@ public class DateUtil
 
 	public static int getYearFromDateString(String dateAsString) 
 	{
+		if (dateAsString == null) return 0;
+		
 		if (isDateFormatEnglish(dateAsString)) 
 		{
 			int pos = dateAsString.indexOf(".");
@@ -73,6 +75,8 @@ public class DateUtil
 	
 	public static boolean isDateFormatEnglish(String dateAsString) 
 	{
+		if (dateAsString == null) return false;
+		
 		try {
 			DATE_FORMAT_DE.parse(dateAsString);
 			return false;
